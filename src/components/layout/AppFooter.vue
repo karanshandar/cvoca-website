@@ -69,16 +69,16 @@
         <div class="footer-section">
           <h4 class="footer-section-title">Resources</h4>
           <nav class="footer-nav">
-            <a 
+            <router-link 
               v-for="resource in RESOURCES" 
-              :key="resource.href"
-              :href="resource.href" 
+              :key="resource.to"
+              :to="resource.to" 
               class="footer-nav-link"
               @click="scrollToTop"
             >
               <v-icon :icon="resource.icon" class="footer-nav-icon" />
               {{ resource.label }}
-            </a>
+            </router-link>
           </nav>
         </div>
 
@@ -133,10 +133,10 @@
 import { SOCIAL_LINKS, CONTACT_INFO, getQuickLinks } from '@/utils/constants'
 
 const RESOURCES = [
-  { href: '/blog', icon: 'mdi-newspaper', label: 'Blog & Articles' },
-  { href: '/events', icon: 'mdi-calendar', label: 'Events Calendar' },
-  { href: '/membership', icon: 'mdi-account-group', label: 'Membership Benefits' },
-  { href: '/digital-outreach', icon: 'mdi-earth', label: 'Digital Outreach' }
+  { to: '/blog', icon: 'mdi-newspaper', label: 'Blog & Articles' },
+  { to: '/events', icon: 'mdi-calendar', label: 'Events Calendar' },
+  { to: '/membership', icon: 'mdi-account-group', label: 'Membership Benefits' },
+  { to: '/digital-outreach', icon: 'mdi-earth', label: 'Digital Outreach' }
 ]
 
 const FOOTER_LINKS = [

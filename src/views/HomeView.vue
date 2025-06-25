@@ -51,7 +51,7 @@
                   size="x-large"
                   class="hero-btn"
                   :class="action.class"
-                  :href="action.href"
+                  :to="action.to"
                   :elevation="action.elevation"
                   :prepend-icon="action.icon"
                 >
@@ -117,7 +117,7 @@
                     :color="feature.color"
                     variant="tonal"
                     size="small"
-                    :href="feature.link"
+                    :to="feature.link"
                     class="feature-btn"
                     append-icon="mdi-arrow-right"
                   >
@@ -212,7 +212,7 @@
                     :variant="action.variant"
                     size="large"
                     class="cta-btn"
-                    :href="action.href"
+                    :to="action.to"
                     :elevation="action.elevation"
                     :prepend-icon="action.icon"
                   >
@@ -246,7 +246,7 @@ const HERO_ACTIONS = [
     text: 'Join CVOCA Today',
     color: 'primary',
     variant: 'elevated',
-    href: '#membership',
+    to: '/membership',
     icon: 'mdi-account-plus',
     elevation: 8,
     class: 'hero-btn-primary'
@@ -255,7 +255,7 @@ const HERO_ACTIONS = [
     text: 'Learn More',
     color: 'surface',
     variant: 'elevated',
-    href: '/about',
+    to: '/about',
     icon: 'mdi-information',
     elevation: 4,
     class: 'hero-btn-secondary'
@@ -273,7 +273,7 @@ const CTA_ACTIONS = [
     text: 'Join Now',
     color: 'primary',
     variant: 'elevated',
-    href: '/membership',
+    to: '/membership',
     icon: 'mdi-account-plus',
     elevation: 6
   },
@@ -281,7 +281,7 @@ const CTA_ACTIONS = [
     text: 'Contact Us',
     color: 'on-surface',
     variant: 'outlined',
-    href: '/contact',
+    to: '/contact',
     icon: 'mdi-email',
     elevation: 0
   }
