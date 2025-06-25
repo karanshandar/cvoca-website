@@ -21,10 +21,10 @@ export const PAGE_TITLES = {
 
 // Social links configuration
 export const SOCIAL_LINKS = [
-  { platform: 'LinkedIn', href: 'https://linkedin.com/company/cvoca', icon: 'mdi-linkedin' },
-  { platform: 'Twitter', href: 'https://twitter.com/cvoca', icon: 'mdi-twitter' },
-  { platform: 'Facebook', href: 'https://facebook.com/cvoca', icon: 'mdi-facebook' },
-  { platform: 'Instagram', href: 'https://instagram.com/cvoca', icon: 'mdi-instagram' }
+  { platform: 'LinkedIn', href: '#', icon: 'mdi-linkedin', external: true },
+  { platform: 'Twitter', href: '#', icon: 'mdi-twitter', external: true },
+  { platform: 'Facebook', href: '#', icon: 'mdi-facebook', external: true },
+  { platform: 'Instagram', href: '#', icon: 'mdi-instagram', external: true }
 ]
 
 // Common contact info

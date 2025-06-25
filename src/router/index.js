@@ -8,6 +8,8 @@ const routes = [
   { path: '/blog', name: 'Blog', component: () => import('../views/BlogView.vue') },
   { path: '/digital-outreach', name: 'DigitalOutreach', component: () => import('../views/DigitalOutreachView.vue') },
   { path: '/contact', name: 'Contact', component: () => import('../views/ContactView.vue') },
+  // Catch-all route for broken links
+  { path: '/:pathMatch(.*)*', redirect: '/' }
 ]
 
 const router = createRouter({

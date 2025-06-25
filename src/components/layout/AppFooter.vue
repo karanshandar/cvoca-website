@@ -37,9 +37,11 @@
               icon
               variant="text"
               :href="social.href"
-              target="_blank"
+              :target="social.external ? '_blank' : undefined"
+              :rel="social.external ? 'noopener noreferrer' : undefined"
               class="social-btn"
               :aria-label="social.platform"
+              @click="social.href === '#' && handlePlaceholderClick(social.platform)"
             >
               <v-icon :icon="social.icon" />
             </v-btn>
@@ -55,6 +57,7 @@
               :key="item.path" 
               :to="item.path" 
               class="footer-nav-link"
+              @click="scrollToTop"
             >
               <v-icon :icon="item.icon" class="footer-nav-icon" />
               {{ item.label }}
@@ -71,6 +74,7 @@
               :key="resource.href"
               :href="resource.href" 
               class="footer-nav-link"
+              @click="scrollToTop"
             >
               <v-icon :icon="resource.icon" class="footer-nav-icon" />
               {{ resource.label }}
@@ -114,6 +118,7 @@
               :key="link.to"
               :to="link.to" 
               class="footer-bottom-link"
+              @click="scrollToTop"
             >
               {{ link.label }}
             </router-link>
@@ -135,10 +140,22 @@ const RESOURCES = [
 ]
 
 const FOOTER_LINKS = [
-  { to: '/privacy', label: 'Privacy Policy' },
-  { to: '/terms', label: 'Terms of Service' },
-  { to: '/sitemap', label: 'Sitemap' }
+  { to: '/about', label: 'About Us' },
+  { to: '/contact', label: 'Contact' },
+  { to: '/membership', label: 'Membership' }
 ]
+
+const handlePlaceholderClick = (platform) => {
+  console.log(`${platform} link clicked - placeholder for future implementation`)
+  // You can add a toast notification here when social media links are ready
+}
+
+const scrollToTop = () => {
+  // Small delay to ensure navigation completes for router links
+  setTimeout(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, 100)
+}
 </script>
 
 <style scoped>
@@ -253,6 +270,27 @@ const FOOTER_LINKS = [
   background: var(--v-theme-primary) !important;
   color: var(--v-theme-on-primary) !important;
   transform: translateY(-2px) scale(1.1);
+}
+
+.social-btn[href="#"] {
+  opacity: 0.7;
+  position: relative;
+}
+
+.social-btn[href="#"]:hover {
+  opacity: 1;
+}
+
+.social-btn[href="#"]::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  background: var(--v-theme-warning);
+  border-radius: 50%;
+  opacity: 0.6;
 }
 
 /* Footer Sections */

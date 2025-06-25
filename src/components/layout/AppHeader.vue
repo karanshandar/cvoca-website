@@ -49,7 +49,7 @@
           icon
           variant="text"
           class="d-lg-none mobile-menu-btn"
-          @click="mobileMenuOpen = !mobileMenuOpen"
+          @click="toggleMobileMenu"
           aria-label="Toggle mobile menu"
           size="large"
         >
@@ -64,7 +64,6 @@
       location="right"
       temporary
       width="320"
-      color="background"
       class="mobile-drawer"
     >
       <div class="mobile-drawer-header">
@@ -99,13 +98,18 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { NAVIGATION_ITEMS } from '@/utils/constants'
 import { useScroll, useActiveRoute } from '@/utils/composables'
 
 const { isScrolled } = useScroll(20)
 const { isActive } = useActiveRoute()
 const mobileMenuOpen = ref(false)
+
+// Debug watcher
+watch(mobileMenuOpen, (newVal) => {
+  console.log('Mobile menu state changed:', newVal)
+})
 
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -114,6 +118,11 @@ const scrollToTop = () => {
 const handleMobileNavClick = () => {
   mobileMenuOpen.value = false
   scrollToTop()
+}
+
+const toggleMobileMenu = () => {
+  mobileMenuOpen.value = !mobileMenuOpen.value
+  console.log('Mobile menu toggled:', mobileMenuOpen.value)
 }
 </script>
 
@@ -201,12 +210,27 @@ const handleMobileNavClick = () => {
 .mobile-menu-btn {
   border-radius: var(--radius-md) !important;
   transition: all var(--transition-normal);
+  background: var(--v-theme-surface-variant) !important;
+  color: var(--v-theme-on-surface) !important;
+  min-width: 48px !important;
+  min-height: 48px !important;
+}
+
+.mobile-menu-btn:hover {
+  background: var(--v-theme-primary-container) !important;
+  color: var(--v-theme-on-primary-container) !important;
+  transform: scale(1.05);
+}
+
+.mobile-menu-btn:active {
+  transform: scale(0.95);
 }
 
 /* Mobile Drawer */
 .mobile-drawer {
   border-radius: var(--radius-lg) 0 0 var(--radius-lg) !important;
   box-shadow: var(--shadow-xl);
+  z-index: 9999 !important;
 }
 
 .mobile-drawer-header {
@@ -222,12 +246,16 @@ const handleMobileNavClick = () => {
   color: var(--v-theme-primary);
 }
 
-.mobile-nav-list { padding: 1rem 0; }
+.mobile-nav-list { 
+  padding: 1rem 0; 
+  flex: 1;
+}
 
 .mobile-nav-item {
   border-radius: var(--radius-md) !important;
   margin: 0.25rem 1rem;
   transition: all var(--transition-fast);
+  cursor: pointer;
 }
 
 .mobile-nav-item:hover {
@@ -240,7 +268,15 @@ const handleMobileNavClick = () => {
   color: var(--v-theme-on-primary) !important;
 }
 
-.mobile-nav-icon { margin-right: 1rem; }
+.mobile-nav-icon { 
+  margin-right: 1rem; 
+  font-size: 1.25rem;
+}
+
+.mobile-nav-text {
+  font-weight: 500;
+  font-size: 1rem;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -250,5 +286,23 @@ const handleMobileNavClick = () => {
   .logo-subtitle { font-size: 0.65rem; }
   
   .logo-wrapper { margin-right: 0.75rem; }
+  
+  .desktop-nav {
+    display: none !important;
+  }
+  
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+  
+  .mobile-drawer {
+    width: 280px !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu-btn {
+    display: none !important;
+  }
 }
 </style> 
