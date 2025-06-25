@@ -13,7 +13,7 @@
           <div class="brand-header">
             <div class="logo-wrapper">
               <v-img
-                :src="logoUrl"
+                src="/assets/images/logo-light.png"
                 alt="CVOCA Logo"
                 width="48"
                 height="48"
@@ -126,9 +126,6 @@
 
 <script setup>
 import { SOCIAL_LINKS, CONTACT_INFO, getQuickLinks } from '@/utils/constants'
-import { useTheme } from '@/utils/composables'
-
-const { logoUrl } = useTheme()
 
 const RESOURCES = [
   { href: '/blog', icon: 'mdi-newspaper', label: 'Blog & Articles' },

@@ -8,13 +8,6 @@ export const NAVIGATION_ITEMS = [
   { path: '/contact', label: 'Contact', icon: 'mdi-email' }
 ]
 
-// Theme utilities to reduce computed property duplication
-export const THEME_UTILS = {
-  logoUrl: (isDark) => isDark ? '/assets/images/logo-dark.png' : '/assets/images/logo-light.png',
-  themeIcon: (isDark) => isDark ? 'mdi-weather-sunny' : 'mdi-weather-night',
-  themeLabel: (isDark) => isDark ? 'Switch to light mode' : 'Switch to dark mode'
-}
-
 // Page titles mapping
 export const PAGE_TITLES = {
   '/': 'CVOCA - Chartered & Cost Accountants Association',

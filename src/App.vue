@@ -15,19 +15,14 @@
 <script setup>
 import { watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { useTheme } from 'vuetify'
-import { useAppStore } from '@/stores/app'
 import { PAGE_TITLES } from '@/utils/constants'
 import AppHeader from '@/components/layout/AppHeader.vue'
 import AppFooter from '@/components/layout/AppFooter.vue'
 
 const route = useRoute()
-const theme = useTheme()
-const appStore = useAppStore()
 
-// Combined theme and title watcher
-watch(() => [appStore.theme, route.path], ([newTheme, path]) => {
-  theme.global.name.value = newTheme === 'dark' ? 'cvocaDark' : 'cvocaTheme'
+// Page title watcher
+watch(() => route.path, (path) => {
   document.title = PAGE_TITLES[path] || 'CVOCA'
 }, { immediate: true })
 </script>

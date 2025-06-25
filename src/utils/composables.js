@@ -1,20 +1,6 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useAppStore } from '@/stores/app'
-import { THEME_UTILS } from './constants'
-
-// Theme utilities composable
-export function useTheme() {
-  const appStore = useAppStore()
-  
-  return {
-    isDark: computed(() => appStore.isDarkMode),
-    toggle: () => appStore.toggleTheme(),
-    logoUrl: computed(() => THEME_UTILS.logoUrl(appStore.isDarkMode)),
-    themeIcon: computed(() => THEME_UTILS.themeIcon(appStore.isDarkMode)),
-    themeLabel: computed(() => THEME_UTILS.themeLabel(appStore.isDarkMode))
-  }
-}
 
 // Scroll tracking composable
 export function useScroll(threshold = 20) {

@@ -4,14 +4,14 @@
     height="80" 
     class="app-header" 
     :class="{ 'header-scrolled': isScrolled }"
-    :color="$vuetify.theme.current.dark ? 'surface' : 'background'"
+    color="background"
   >
     <v-container class="d-flex align-center header-container">
       <!-- Logo Section -->
       <router-link to="/" class="d-flex align-center text-decoration-none logo-link" @click="scrollToTop">
         <div class="logo-wrapper">
           <v-img
-            :src="logoUrl"
+            src="/assets/images/logo-light.png"
             alt="CVOCA Logo"
             width="48"
             height="48"
@@ -44,18 +44,6 @@
 
       <!-- Header Actions -->
       <div class="d-flex align-center header-actions">
-        <!-- Theme Toggle -->
-        <v-btn
-          icon
-          variant="text"
-          @click="toggleTheme"
-          :aria-label="themeLabel"
-          class="theme-btn"
-          size="large"
-        >
-          <v-icon :icon="themeIcon" />
-        </v-btn>
-
         <!-- Mobile Menu Toggle -->
         <v-btn
           icon
@@ -76,7 +64,7 @@
       location="right"
       temporary
       width="320"
-      :color="$vuetify.theme.current.dark ? 'surface' : 'background'"
+      color="background"
       class="mobile-drawer"
     >
       <div class="mobile-drawer-header">
@@ -106,22 +94,6 @@
           <v-list-item-title class="mobile-nav-text">{{ item.label }}</v-list-item-title>
         </v-list-item>
       </v-list>
-      
-      <div class="mobile-drawer-footer">
-        <v-divider class="mb-4" />
-        <div class="mobile-theme-toggle">
-          <span class="mobile-theme-label">Theme</span>
-          <v-btn
-            icon
-            variant="text"
-            @click="toggleTheme"
-            :aria-label="themeLabel"
-            size="small"
-          >
-            <v-icon :icon="themeIcon" />
-          </v-btn>
-        </div>
-      </div>
     </v-navigation-drawer>
   </v-app-bar>
 </template>
@@ -129,9 +101,8 @@
 <script setup>
 import { ref } from 'vue'
 import { NAVIGATION_ITEMS } from '@/utils/constants'
-import { useTheme, useScroll, useActiveRoute } from '@/utils/composables'
+import { useScroll, useActiveRoute } from '@/utils/composables'
 
-const { logoUrl, themeIcon, themeLabel, toggle: toggleTheme } = useTheme()
 const { isScrolled } = useScroll(20)
 const { isActive } = useActiveRoute()
 const mobileMenuOpen = ref(false)
@@ -227,16 +198,6 @@ const handleMobileNavClick = () => {
 /* Header Actions */
 .header-actions { gap: 0.5rem; }
 
-.theme-btn {
-  border-radius: 50% !important;
-  transition: all var(--transition-normal);
-}
-
-.theme-btn:hover {
-  background: var(--v-theme-primary-container) !important;
-  transform: rotate(180deg) scale(1.1);
-}
-
 .mobile-menu-btn {
   border-radius: var(--radius-md) !important;
   transition: all var(--transition-normal);
@@ -280,27 +241,6 @@ const handleMobileNavClick = () => {
 }
 
 .mobile-nav-icon { margin-right: 1rem; }
-
-.mobile-drawer-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1rem;
-  background: var(--v-theme-surface-variant);
-}
-
-.mobile-theme-toggle {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem;
-}
-
-.mobile-theme-label {
-  font-weight: 600;
-  color: var(--v-theme-on-surface);
-}
 
 /* Responsive */
 @media (max-width: 768px) {
