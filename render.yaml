@@ -4,7 +4,7 @@ services:
     env: static
     buildCommand: chmod +x build.sh && ./build.sh
     staticPublishPath: ./dist
-    nodeVersion: 18
+    nodeVersion: 22
     routes:
       - type: rewrite
         source: /*
