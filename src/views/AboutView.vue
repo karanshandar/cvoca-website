@@ -162,18 +162,14 @@
             <div class="modern-navigation">
               <v-card class="nav-container" elevation="0">
                 <v-card-text class="pa-6">
-                  <v-chip-group
-                    v-model="selectedSection"
-                    selected-class="selected-chip"
-                    mandatory
-                    class="modern-chip-group"
-                  >
+                  <div class="custom-chip-group">
                     <v-chip
                       v-for="section in committeeSections"
                       :key="section.id"
-                      :value="section.id"
+                      :class="{ 'selected-chip': selectedSection === section.id }"
                       class="modern-nav-chip"
                       size="large"
+                      @click="selectedSection = section.id"
                     >
                       <v-icon :icon="section.icon" class="mr-3" />
                       <div class="chip-content">
@@ -181,7 +177,7 @@
                         <div class="chip-subtitle">{{ section.subtitle }}</div>
                       </div>
                     </v-chip>
-                  </v-chip-group>
+                  </div>
                 </v-card-text>
               </v-card>
             </div>
@@ -713,7 +709,7 @@ const currentSection = computed(() =>
   border: 1px solid rgb(var(--v-theme-outline));
 }
 
-.modern-chip-group {
+.custom-chip-group {
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -725,9 +721,12 @@ const currentSection = computed(() =>
   border: 2px solid rgba(var(--v-theme-outline), 0.5) !important;
   border-radius: 16px !important;
   height: auto !important;
+  min-height: 60px !important;
   padding: 1rem 1.5rem !important;
   transition: all 0.3s ease !important;
   cursor: pointer;
+  display: flex !important;
+  align-items: center !important;
 }
 
 .modern-nav-chip:hover {
@@ -851,6 +850,22 @@ const currentSection = computed(() =>
   .services-grid {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
+  
+  .custom-chip-group {
+    gap: 0.75rem;
+  }
+  
+  .modern-nav-chip {
+    padding: 0.75rem 1rem !important;
+  }
+  
+  .chip-title {
+    font-size: 0.9rem;
+  }
+  
+  .chip-subtitle {
+    font-size: 0.75rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -880,14 +895,45 @@ const currentSection = computed(() =>
     padding: 2rem;
   }
   
-  .modern-chip-group {
-    flex-direction: column;
-    align-items: center;
+  .modern-navigation {
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  .nav-container {
+    margin: 0 1rem;
+  }
+  
+  /* Force vertical stacking on mobile */
+  .modern-chip-group,
+  .modern-chip-group .v-chip-group__content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
   }
   
   .modern-nav-chip {
-    width: 100%;
-    max-width: 300px;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 1rem !important;
+    justify-content: flex-start !important;
+    flex: none !important;
+    margin: 0 !important;
+  }
+  
+  .chip-content {
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .chip-title {
+    font-size: 1rem;
+  }
+  
+  .chip-subtitle {
+    font-size: 0.85rem;
   }
 }
 
@@ -906,6 +952,58 @@ const currentSection = computed(() =>
   
   .vision-mission-modern {
     gap: 1.5rem;
+  }
+  
+  .nav-container {
+    margin: 0 0.5rem;
+  }
+  
+  /* Ensure chips are properly stacked on small screens */
+  .modern-chip-group,
+  .modern-chip-group .v-chip-group__content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+  }
+  
+  .modern-nav-chip {
+    padding: 0.875rem !important;
+    border-radius: 12px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    flex: none !important;
+  }
+  
+  .section-header {
+    margin-bottom: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .title-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+  
+  .content-header {
+    padding: 1rem 1.5rem;
+  }
+  
+  .content-header-left {
+    gap: 1rem;
+  }
+  
+  .content-icon {
+    font-size: 1.5rem;
+  }
+  
+  .content-title {
+    font-size: 1.5rem;
   }
 }
 </style> 
