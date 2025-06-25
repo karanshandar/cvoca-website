@@ -15,6 +15,29 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
+  }
+})
+
+// Navigation guard for analytics or logging
+router.beforeEach((to, from, next) => {
+  // Log navigation for debugging
+  if (process.env.NODE_ENV === 'development') {
+    console.log(`Navigating from ${from.path} to ${to.path}`)
+  }
+  next()
+})
+
+// Handle navigation errors
+router.onError((error) => {
+  console.error('Router error:', error)
+  // Redirect to home page on error
+  router.push('/')
 })
 
 export default router 
