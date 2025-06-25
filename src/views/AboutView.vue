@@ -905,8 +905,7 @@ const currentSection = computed(() =>
   }
   
   /* Force vertical stacking on mobile */
-  .modern-chip-group,
-  .modern-chip-group .v-chip-group__content {
+  .custom-chip-group {
     display: flex !important;
     flex-direction: column !important;
     align-items: stretch !important;
@@ -959,8 +958,7 @@ const currentSection = computed(() =>
   }
   
   /* Ensure chips are properly stacked on small screens */
-  .modern-chip-group,
-  .modern-chip-group .v-chip-group__content {
+  .custom-chip-group {
     display: flex !important;
     flex-direction: column !important;
     align-items: stretch !important;
