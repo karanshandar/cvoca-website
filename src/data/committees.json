@@ -1,0 +1,950 @@
+[
+  {
+    "Committee": "Program",
+    "Position": "Chairperson",
+    "Name": "CA Jeenal KenilSavla",
+    "Village": "Beraja"
+  },
+  {
+    "Committee": "RRC & PD",
+    "Position": "Chairperson",
+    "Name": "CA Ameet MahendraChheda",
+    "Village": "Bidada"
+  },
+  {
+    "Committee": "Pub & Trn",
+    "Position": "Chairperson",
+    "Name": "CA Nilesh TalakshiDedhia",
+    "Village": "Gundala"
+  },
+  {
+    "Committee": "Mem.& Recreation",
+    "Position": "Chairperson",
+    "Name": "CA Jigar Ratilal Gogri",
+    "Village": "Don"
+  },
+  {
+    "Committee": "Study Circle",
+    "Position": "Chairperson",
+    "Name": "CA Sanjay VishanjiChheda",
+    "Village": "RatadiaGaneshwala"
+  },
+  {
+    "Committee": "Capital Market",
+    "Position": "Chairperson",
+    "Name": "CA Rahul TalakshiNagda",
+    "Village": "Naredi"
+  },
+  {
+    "Committee": "InfoViews",
+    "Position": "Chairperson",
+    "Name": "CA Ketan NanjiGada",
+    "Village": "Raydhanjar"
+  },
+  {
+    "Committee": "Students",
+    "Position": "Chairperson",
+    "Name": "CA Sunil VallabhjiDedhia",
+    "Village": "NaniKhakhar"
+  },
+  {
+    "Committee": "YIME",
+    "Position": "Chairperson",
+    "Name": "CA HimanshuTalakshi Chheda",
+    "Village": "Kundrodi"
+  },
+  {
+    "Committee": "Practice M & D",
+    "Position": "Chairperson",
+    "Name": "CA Paras KhimjiSavla",
+    "Village": "Vanki"
+  },
+  {
+    "Committee": "Digi Outreach",
+    "Position": "Chairperson",
+    "Name": "CA Vinit DineshGada",
+    "Village": "Tragdi"
+  },
+  {
+    "Committee": "Representations,ProfessionalUpdate andCoordination",
+    "Position": "Chairperson",
+    "Name": "CA Atul ChunilalBheda",
+    "Village": "Bhujpur"
+  },
+  {
+    "Committee": "Office Premises &Fund Raising",
+    "Position": "Chairperson",
+    "Name": "CA Champak KalyanjiDedhia",
+    "Village": "Bharapur"
+  },
+  {
+    "Committee": "Program",
+    "Position": "Advisor",
+    "Name": "CA Manoj ChunilalShah",
+    "Village": "Lakhapur"
+  },
+  {
+    "Committee": "RRC & PD",
+    "Position": "Advisor",
+    "Name": "CA Hasmukh BhavanjiDedhia",
+    "Village": "Koday"
+  },
+  {
+    "Committee": "Pub & Trn",
+    "Position": "Advisor",
+    "Name": "CA Ashok LakhamshiChheda",
+    "Village": "NanaAsambiya"
+  },
+  {
+    "Committee": "Mem.& Recreation",
+    "Position": "Advisor",
+    "Name": "CA Navin ChapshiShah",
+    "Village": "Naredi"
+  },
+  {
+    "Committee": "Study Circle",
+    "Position": "Advisor",
+    "Name": "CA Sanjeev DungarshiLalan",
+    "Village": "Koday"
+  },
+  {
+    "Committee": "Capital Market",
+    "Position": "Advisor",
+    "Name": "CA Mulesh ManilalSavla",
+    "Village": "Dumra"
+  },
+  {
+    "Committee": "Office Premises &Fund Raising",
+    "Position": "Advisor",
+    "Name": "CA Dinesh DevchandGhalla",
+    "Village": "RayanCA Atul ChunilalBheda - BhujpurCA Nitin MeghjiMaru - KapayaCA Navin ChapshiShah - Naredi"
+  },
+  {
+    "Committee": "Program",
+    "Position": "Convenor",
+    "Name": "CA Chintan TarunRambhia",
+    "Village": "Ramania"
+  },
+  {
+    "Committee": "RRC & PD",
+    "Position": "Convenor",
+    "Name": "CA Nihar SureshDharod",
+    "Village": "Chassara"
+  },
+  {
+    "Committee": "Pub & Trn",
+    "Position": "Convenor",
+    "Name": "CA Viral Vinod Satra",
+    "Village": "Gundala"
+  },
+  {
+    "Committee": "Mem.& Recreation",
+    "Position": "Convenor",
+    "Name": "CA Deep RashminChheda",
+    "Village": "RatadiaGaneshwala"
+  },
+  {
+    "Committee": "Study Circle",
+    "Position": "Convenor",
+    "Name": "CA Hetal Vinit Gada",
+    "Village": "Tragadi"
+  },
+  {
+    "Committee": "Capital Market",
+    "Position": "Convenor",
+    "Name": "CA Akash Rajesh Gogri",
+    "Village": "Tunda"
+  },
+  {
+    "Committee": "InfoViews",
+    "Position": "Convenor",
+    "Name": "CA Ami Harsh Savla",
+    "Village": "Rayan"
+  },
+  {
+    "Committee": "Students",
+    "Position": "Convenor",
+    "Name": "CA Shreya KirtiNagda",
+    "Village": "Bhojay"
+  },
+  {
+    "Committee": "YIME",
+    "Position": "Convenor",
+    "Name": "CA Priti Paras Savla",
+    "Village": "Vanki"
+  },
+  {
+    "Committee": "Practice M & D",
+    "Position": "Convenor",
+    "Name": "CA ParasLaxmichand Maru",
+    "Village": "Sabhrai"
+  },
+  {
+    "Committee": "Digi Outreach",
+    "Position": "Convenor",
+    "Name": "CA Harsh Lalit Soni",
+    "Village": "Bambhadai"
+  },
+  {
+    "Committee": "Representations,ProfessionalUpdate andCoordination",
+    "Position": "Convenor",
+    "Name": "CA PritenBhupendra Shah",
+    "Village": "Talvana"
+  },
+  {
+    "Committee": "Office Premises &Fund Raising",
+    "Position": "Convenor",
+    "Name": "CA Chintan DhirajSaiya",
+    "Village": "Gelda"
+  },
+  {
+    "Committee": "Program",
+    "Position": "Jt. Convenor",
+    "Name": "CA Viral Vinod Satra",
+    "Village": "Gundala"
+  },
+  {
+    "Committee": "RRC & PD",
+    "Position": "Jt. Convenor",
+    "Name": "CA Deep RashminChheda",
+    "Village": "RatadiaGaneshwala"
+  },
+  {
+    "Committee": "Pub & Trn",
+    "Position": "Jt. Convenor",
+    "Name": "CA Chintan Dhiraj Saiya",
+    "Village": "Gelda"
+  },
+  {
+    "Committee": "Mem.& Recreation",
+    "Position": "Jt. Convenor",
+    "Name": "CA Akash RajeshGogri",
+    "Village": "Tunda"
+  },
+  {
+    "Committee": "Study Circle",
+    "Position": "Jt. Convenor",
+    "Name": "CA Ami Harsh Savla",
+    "Village": "Rayan"
+  },
+  {
+    "Committee": "Capital Market",
+    "Position": "Jt. Convenor",
+    "Name": "CA Nihar SureshDharod",
+    "Village": "Chassara"
+  },
+  {
+    "Committee": "InfoViews",
+    "Position": "Jt. Convenor",
+    "Name": "CA Grishma NiravSaiya",
+    "Village": "Beraja"
+  },
+  {
+    "Committee": "Students",
+    "Position": "Jt. Convenor",
+    "Name": "CA Hetal Vinit Gada",
+    "Village": "Tragadi"
+  },
+  {
+    "Committee": "YIME",
+    "Position": "Jt. Convenor",
+    "Name": "CA Jill Jayesh Shah",
+    "Village": "Pragpur"
+  },
+  {
+    "Committee": "Practice M & D",
+    "Position": "Jt. Convenor",
+    "Name": "CA Ankur KishorSangoi",
+    "Village": "Kapaya"
+  },
+  {
+    "Committee": "Digi Outreach",
+    "Position": "Jt. Convenor",
+    "Name": "CA Henik DilipShah",
+    "Village": "Naredi"
+  },
+  {
+    "Committee": "Representations,ProfessionalUpdate andCoordination",
+    "Position": "Jt. Convenor",
+    "Name": "CA Ankur KishorGada",
+    "Village": "Dumra"
+  },
+  {
+    "Committee": "Office Premises &Fund Raising",
+    "Position": "Jt. Convenor",
+    "Name": "CA Paras LaxmichandMaru",
+    "Village": "Sabhrai"
+  },
+  {
+    "Committee": "Program",
+    "Position": "Jt. Convenor",
+    "Name": "CA Meghna VihangMakda",
+    "Village": "Beraja"
+  },
+  {
+    "Committee": "RRC & PD",
+    "Position": "Jt. Convenor",
+    "Name": "CA Ronak Pravin Gada",
+    "Village": "Mota Ratadiya"
+  },
+  {
+    "Committee": "Pub & Trn",
+    "Position": "Jt. Convenor",
+    "Name": "CA Zeel Manilal Vora",
+    "Village": "Pragpar"
+  },
+  {
+    "Committee": "Mem.& Recreation",
+    "Position": "Jt. Convenor",
+    "Name": "CA Harsh Bipin Nagda",
+    "Village": "Godhro"
+  },
+  {
+    "Committee": "Study Circle",
+    "Position": "Jt. Convenor",
+    "Name": "CA Kushal DevendraDedhia",
+    "Village": "Kandagra"
+  },
+  {
+    "Committee": "Capital Market",
+    "Position": "Jt. Convenor",
+    "Name": "CA Jai Jayantilal Savla",
+    "Village": "Koday"
+  },
+  {
+    "Committee": "Students",
+    "Position": "Jt. Convenor",
+    "Name": "CA Mittal VisheshSangoi",
+    "Village": "Sadau"
+  },
+  {
+    "Committee": "YIME",
+    "Position": "Jt. Convenor",
+    "Name": "CA Virav NitinDedhia",
+    "Village": "NaniKhakhar"
+  },
+  {
+    "Committee": "Practice M & D",
+    "Position": "Jt. Convenor",
+    "Name": "CA Kimi JenishNagda",
+    "Village": "Godhra"
+  },
+  {
+    "Committee": "Program",
+    "Position": "SpecialInvitee",
+    "Name": "CA Paresh KhimjiVora",
+    "Village": "Navinar"
+  },
+  {
+    "Committee": "RRC & PD",
+    "Position": "SpecialInvitee",
+    "Name": "CA Dilip KhushalchandGosar",
+    "Village": "Vindh"
+  },
+  {
+    "Committee": "Pub & Trn",
+    "Position": "SpecialInvitee",
+    "Name": "CA Rakesh MaganlalVora",
+    "Village": "Don"
+  },
+  {
+    "Committee": "Mem.& Recreation",
+    "Position": "SpecialInvitee",
+    "Name": "CA Arvind HemrajNagda",
+    "Village": "Naredi"
+  },
+  {
+    "Committee": "Study Circle",
+    "Position": "SpecialInvitee",
+    "Name": "CA Deepesh TalakshiChheda",
+    "Village": "Kandagara"
+  },
+  {
+    "Committee": "Capital Market",
+    "Position": "SpecialInvitee",
+    "Name": "CA Sudhir Shivji Bheda",
+    "Village": "Bhujpur"
+  },
+  {
+    "Committee": "InfoViews",
+    "Position": "SpecialInvitee",
+    "Name": "CA Jasmine SunderjiSawla",
+    "Village": "Bhinsra"
+  },
+  {
+    "Committee": "Students",
+    "Position": "SpecialInvitee",
+    "Name": "CA BharatLaxmichand Nagda",
+    "Village": "Naredi"
+  },
+  {
+    "Committee": "YIME",
+    "Position": "SpecialInvitee",
+    "Name": "CA Jignesh VasantKenia",
+    "Village": "Baroi"
+  },
+  {
+    "Committee": "Practice M & D",
+    "Position": "SpecialInvitee",
+    "Name": "CA Ashwin BhavanjiShah",
+    "Village": "Bidada"
+  },
+  {
+    "Committee": "Digi Outreach",
+    "Position": "SpecialInvitee",
+    "Name": "CA Maitri ParasSavla",
+    "Village": "Lakhapur"
+  },
+  {
+    "Committee": "Program",
+    "Position": "SpecialInvitee",
+    "Name": "CA Anil Kantilal Haria",
+    "Village": "Shredi"
+  },
+  {
+    "Committee": "RRC & PD",
+    "Position": "SpecialInvitee",
+    "Name": "CA Jayesh KalyanjiSalia",
+    "Village": "Godhara"
+  },
+  {
+    "Committee": "Pub & Trn",
+    "Position": "SpecialInvitee",
+    "Name": "CA Tansukh KeshavjiChheda",
+    "Village": "Vanki"
+  },
+  {
+    "Committee": "Mem.& Recreation",
+    "Position": "SpecialInvitee",
+    "Name": "CA Mehul TalakshiGala",
+    "Village": "Vadala"
+  },
+  {
+    "Committee": "Study Circle",
+    "Position": "SpecialInvitee",
+    "Name": "CA Kirit Pramji Dedhia",
+    "Village": "Merau"
+  },
+  {
+    "Committee": "Capital Market",
+    "Position": "SpecialInvitee",
+    "Name": "CA Nilesh JivrajChhadwa",
+    "Village": "Mapar"
+  },
+  {
+    "Committee": "InfoViews",
+    "Position": "SpecialInvitee",
+    "Name": "CA Kiran KhimjiNandu",
+    "Village": "Bidada"
+  },
+  {
+    "Committee": "Students",
+    "Position": "SpecialInvitee",
+    "Name": "CA Namrata RiteshDedhia",
+    "Village": "Merau"
+  },
+  {
+    "Committee": "Practice M & D",
+    "Position": "SpecialInvitee",
+    "Name": "CA Hitesh KeshavjiPasad",
+    "Village": "Kotda(Roha)"
+  },
+  {
+    "Committee": "Program",
+    "Position": "SubCommittee",
+    "Name": "CA Paras LaxmichandMaru",
+    "Village": "Sabhrai"
+  },
+  {
+    "Committee": "RRC & PD",
+    "Position": "SubCommittee",
+    "Name": "CA Sanjay Khetsi Savla",
+    "Village": "Moti Rayan"
+  },
+  {
+    "Committee": "Pub & Trn",
+    "Position": "SubCommittee",
+    "Name": "CA Kajal Sanjay Gala",
+    "Village": "Mota Asambia"
+  },
+  {
+    "Committee": "Mem.& Recreation",
+    "Position": "SubCommittee",
+    "Name": "Pratik BharatShahanand",
+    "Village": "Sabhrai"
+  },
+  {
+    "Committee": "Study Circle",
+    "Position": "SubCommittee",
+    "Name": "CA Vishesh DhirendraSangoi",
+    "Village": "Sadau"
+  },
+  {
+    "Committee": "Capital Market",
+    "Position": "SubCommittee",
+    "Name": "CA Deesha Nitin Shah",
+    "Village": "Naredi"
+  },
+  {
+    "Committee": "InfoViews",
+    "Position": "SubCommittee",
+    "Name": "CA Neha NirajLodhaya",
+    "Village": "Nalia"
+  },
+  {
+    "Committee": "Students",
+    "Position": "SubCommittee",
+    "Name": "CS Dipti NikhilChheda",
+    "Village": "Godhra"
+  },
+  {
+    "Committee": "YIME",
+    "Position": "SubCommittee",
+    "Name": "CA BharatSurendra Nandu",
+    "Village": "Koday"
+  },
+  {
+    "Committee": "Practice M & D",
+    "Position": "SubCommittee",
+    "Name": "CA Jatin DhanjiFuria",
+    "Village": "Talwana"
+  },
+  {
+    "Committee": "Digi Outreach",
+    "Position": "SubCommittee",
+    "Name": "CA Karan DilipShah",
+    "Village": "Moti Khakar"
+  },
+  {
+    "Committee": "Representations,ProfessionalUpdate andCoordination",
+    "Position": "SubCommittee",
+    "Name": "CA Amish ShantilalSangoi",
+    "Village": "Toda"
+  },
+  {
+    "Committee": "Office Premises &Fund Raising",
+    "Position": "SubCommittee",
+    "Name": "CA Mehul TalakshiGala",
+    "Village": "Vadala"
+  },
+  {
+    "Committee": "Program",
+    "Position": "SubCommittee",
+    "Name": "CA Shreya KirtiNagda",
+    "Village": "Bhojay"
+  },
+  {
+    "Committee": "RRC & PD",
+    "Position": "SubCommittee",
+    "Name": "CA Bhavin MavjiDedhia",
+    "Village": "Bhujpur"
+  },
+  {
+    "Committee": "Pub & Trn",
+    "Position": "SubCommittee",
+    "Name": "CA Manish DevchandNagda",
+    "Village": "Naredi"
+  },
+  {
+    "Committee": "Mem.& Recreation",
+    "Position": "SubCommittee",
+    "Name": "CA Priten BhupendraShah",
+    "Village": "Talvana"
+  },
+  {
+    "Committee": "Study Circle",
+    "Position": "SubCommittee",
+    "Name": "CA Diti Ankit Shah",
+    "Village": "Mapar"
+  },
+  {
+    "Committee": "Capital Market",
+    "Position": "SubCommittee",
+    "Name": "CA Jainis KetanChheda",
+    "Village": "Deshalpar"
+  },
+  {
+    "Committee": "InfoViews",
+    "Position": "SubCommittee",
+    "Name": "CA Jinesh PareshSavla",
+    "Village": "MotaAsambhia"
+  },
+  {
+    "Committee": "Students",
+    "Position": "SubCommittee",
+    "Name": "CA Heenal PratikFuria",
+    "Village": "Kharau"
+  },
+  {
+    "Committee": "YIME",
+    "Position": "SubCommittee",
+    "Name": "CA Kunjan AtulMaru",
+    "Village": "Bidada"
+  },
+  {
+    "Committee": "Practice M & D",
+    "Position": "SubCommittee",
+    "Name": "CA Anant DeepakVora",
+    "Village": "Moti Varandi"
+  },
+  {
+    "Committee": "Digi Outreach",
+    "Position": "SubCommittee",
+    "Name": "CA ShraddhaUmang Dedhia",
+    "Village": "Bidada"
+  },
+  {
+    "Committee": "Representations,ProfessionalUpdate andCoordination",
+    "Position": "SubCommittee",
+    "Name": "CA Ankur KishorSangoi",
+    "Village": "Kapaya"
+  },
+  {
+    "Committee": "Office Premises &Fund Raising",
+    "Position": "SubCommittee",
+    "Name": "CA Reenkal JitendraGangar",
+    "Village": "Merau"
+  },
+  {
+    "Committee": "Program",
+    "Position": "SubCommittee",
+    "Name": "CA Zalak MahendraSavla",
+    "Village": "Moti Rayan"
+  },
+  {
+    "Committee": "RRC & PD",
+    "Position": "SubCommittee",
+    "Name": "CA Mayank BhupendraGosar",
+    "Village": "Vidh"
+  },
+  {
+    "Committee": "Pub & Trn",
+    "Position": "SubCommittee",
+    "Name": "CA Kintan NarendraMaru",
+    "Village": "Koday"
+  },
+  {
+    "Committee": "Mem.& Recreation",
+    "Position": "SubCommittee",
+    "Name": "CA Vihang JitendraMakda",
+    "Village": "Beraja"
+  },
+  {
+    "Committee": "Study Circle",
+    "Position": "SubCommittee",
+    "Name": "CA Ritesh ShashikantSavla",
+    "Village": "Ratadiya G"
+  },
+  {
+    "Committee": "Capital Market",
+    "Position": "SubCommittee",
+    "Name": "CA Chintan VasantSavla",
+    "Village": "Merava"
+  },
+  {
+    "Committee": "InfoViews",
+    "Position": "SubCommittee",
+    "Name": "CA Paras ManojMaru",
+    "Village": "Bidada"
+  },
+  {
+    "Committee": "Students",
+    "Position": "SubCommittee",
+    "Name": "CA Shasan DevchandGala",
+    "Village": "Kotda (Roha)"
+  },
+  {
+    "Committee": "YIME",
+    "Position": "SubCommittee",
+    "Name": "CA Disha HiteshVeera",
+    "Village": "Karagogha"
+  },
+  {
+    "Committee": "Practice M & D",
+    "Position": "SubCommittee",
+    "Name": "CA Niraj BharatChheda",
+    "Village": "Mokha"
+  },
+  {
+    "Committee": "Digi Outreach",
+    "Position": "SubCommittee",
+    "Name": "CA Pooja RajeshChheda",
+    "Village": "RatadiaGaneshwala"
+  },
+  {
+    "Committee": "Representations,ProfessionalUpdate andCoordination",
+    "Position": "SubCommittee",
+    "Name": "CA Ishita VijayVisariya",
+    "Village": "Desalpur"
+  },
+  {
+    "Committee": "Program",
+    "Position": "SubCommittee",
+    "Name": "CA Harsh Lalit Soni",
+    "Village": "Bambhdai"
+  },
+  {
+    "Committee": "RRC & PD",
+    "Position": "SubCommittee",
+    "Name": "CA Het Dhanji Bheda",
+    "Village": "Kapaya"
+  },
+  {
+    "Committee": "Pub & Trn",
+    "Position": "SubCommittee",
+    "Name": "CA Keyur MahendraRambhia",
+    "Village": "Depa"
+  },
+  {
+    "Committee": "Mem.& Recreation",
+    "Position": "SubCommittee",
+    "Name": "CS Keyur JitendraFuria",
+    "Village": "Bidada"
+  },
+  {
+    "Committee": "Study Circle",
+    "Position": "SubCommittee",
+    "Name": "CA Hardik Ketan Saiya",
+    "Village": "Mokha"
+  },
+  {
+    "Committee": "Capital Market",
+    "Position": "SubCommittee",
+    "Name": "CA Pratik MahendraChheda",
+    "Village": "Doan"
+  },
+  {
+    "Committee": "InfoViews",
+    "Position": "SubCommittee",
+    "Name": "CA Sohil KishorGangar",
+    "Village": "Dehalpur"
+  },
+  {
+    "Committee": "Students",
+    "Position": "SubCommittee",
+    "Name": "CA Kinjal DineshChheda",
+    "Village": "Mota Layja"
+  },
+  {
+    "Committee": "YIME",
+    "Position": "SubCommittee",
+    "Name": "CA Zeel ManilalVora",
+    "Village": "Pragpar"
+  },
+  {
+    "Committee": "Practice M & D",
+    "Position": "SubCommittee",
+    "Name": "CA Karan Dilip Shah",
+    "Village": "Moti Khakar"
+  },
+  {
+    "Committee": "Digi Outreach",
+    "Position": "SubCommittee",
+    "Name": "CA Dharmi AditDharod",
+    "Village": "Sadau/Patri"
+  },
+  {
+    "Committee": "Representations,ProfessionalUpdate andCoordination",
+    "Position": "SubCommittee",
+    "Name": "CA Pooja VatsalDedhia",
+    "Village": "Godhra"
+  },
+  {
+    "Committee": "Program",
+    "Position": "SubCommittee",
+    "Name": "CA Akshay NitinSatra",
+    "Village": "Luni"
+  },
+  {
+    "Committee": "RRC & PD",
+    "Position": "SubCommittee",
+    "Name": "CA Sanyam JethalalGala",
+    "Village": "Devpur"
+  },
+  {
+    "Committee": "Pub & Trn",
+    "Position": "SubCommittee",
+    "Name": "CA Nehal Mahir Gada",
+    "Village": "Manjal reladia"
+  },
+  {
+    "Committee": "Mem.& Recreation",
+    "Position": "SubCommittee",
+    "Name": "CA Kunjesh Raju Shah",
+    "Village": "Sanosara"
+  },
+  {
+    "Committee": "Study Circle",
+    "Position": "SubCommittee",
+    "Name": "CA Jainis KetanChheda",
+    "Village": "Deshalpar"
+  },
+  {
+    "Committee": "Capital Market",
+    "Position": "SubCommittee",
+    "Name": "CA MeetRameshchandra Gada",
+    "Village": "Bhachau"
+  },
+  {
+    "Committee": "InfoViews",
+    "Position": "SubCommittee",
+    "Name": "CA Pratik GirishMaru",
+    "Village": "Doan"
+  },
+  {
+    "Committee": "Students",
+    "Position": "SubCommittee",
+    "Name": "CA Nirav DineshSaiya",
+    "Village": "Gelda"
+  },
+  {
+    "Committee": "YIME",
+    "Position": "SubCommittee",
+    "Name": "CA MananRamniklal Maru",
+    "Village": "Halapur"
+  },
+  {
+    "Committee": "Practice M & D",
+    "Position": "SubCommittee",
+    "Name": "CA Bhavya ChunilalSavla",
+    "Village": "Lakadiya"
+  },
+  {
+    "Committee": "Digi Outreach",
+    "Position": "SubCommittee",
+    "Name": "CA Ashay PravinSaiya",
+    "Village": "Gelda"
+  },
+  {
+    "Committee": "Program",
+    "Position": "SubCommittee",
+    "Name": "CA ParighLaxmichand Sangoi",
+    "Village": "Godhro"
+  },
+  {
+    "Committee": "RRC & PD",
+    "Position": "SubCommittee",
+    "Name": "CA Dhiarya RohitBheda",
+    "Village": "Mokha"
+  },
+  {
+    "Committee": "Pub & Trn",
+    "Position": "SubCommittee",
+    "Name": "CA Vedant Dhiraj Gada",
+    "Village": "Samakhiyali"
+  },
+  {
+    "Committee": "Mem.& Recreation",
+    "Position": "SubCommittee",
+    "Name": "CA Vaibhav KiritNagda",
+    "Village": "Chagdai"
+  },
+  {
+    "Committee": "Study Circle",
+    "Position": "SubCommittee",
+    "Name": "CA Aman ShashikantHaria",
+    "Village": "Sherdi"
+  },
+  {
+    "Committee": "Capital Market",
+    "Position": "SubCommittee",
+    "Name": "CA Somil Visariya",
+    "Village": "Godhra"
+  },
+  {
+    "Committee": "InfoViews",
+    "Position": "SubCommittee",
+    "Name": "CA Chandni ChintanDedhia",
+    "Village": "Talwana"
+  },
+  {
+    "Committee": "Students",
+    "Position": "SubCommittee",
+    "Name": "CA Kruti Vinit Sangoi",
+    "Village": "Toda"
+  },
+  {
+    "Committee": "YIME",
+    "Position": "SubCommittee",
+    "Name": "CA Shikha JatinRambhia",
+    "Village": "Ramania"
+  },
+  {
+    "Committee": "Practice M & D",
+    "Position": "SubCommittee",
+    "Name": "CA Rakshit VasantChheda",
+    "Village": "Bidada"
+  },
+  {
+    "Committee": "Digi Outreach",
+    "Position": "SubCommittee",
+    "Name": "CA AnuragVelchand Shah",
+    "Village": "Tragadi"
+  },
+  {
+    "Committee": "Program",
+    "Position": "SubCommittee",
+    "Name": "CA Nisha Ninad Gala",
+    "Village": "Desalpur"
+  },
+  {
+    "Committee": "RRC & PD",
+    "Position": "SubCommittee",
+    "Name": "CA Jainisha KetanGada",
+    "Village": "Raydhanjar"
+  },
+  {
+    "Committee": "Pub & Trn",
+    "Position": "SubCommittee",
+    "Name": "CA Hiloni Jay Savla",
+    "Village": "Beraja"
+  },
+  {
+    "Committee": "Mem.& Recreation",
+    "Position": "SubCommittee",
+    "Name": "CA Riddhi BhumitGala",
+    "Village": "Bhojay"
+  },
+  {
+    "Committee": "Study Circle",
+    "Position": "SubCommittee",
+    "Name": "CA Yash Hiren Mota",
+    "Village": "Devpur"
+  },
+  {
+    "Committee": "Capital Market",
+    "Position": "SubCommittee",
+    "Name": "CA Smith Vijay Gala",
+    "Village": "Vadala"
+  },
+  {
+    "Committee": "Students",
+    "Position": "SubCommittee",
+    "Name": "CA Trishla PrakashBheda",
+    "Village": "Bhujpur"
+  },
+  {
+    "Committee": "YIME",
+    "Position": "SubCommittee",
+    "Name": "CA KomalChaitanya Dedhia",
+    "Village": "Gadhshisha"
+  },
+  {
+    "Committee": "Practice M & D",
+    "Position": "SubCommittee",
+    "Name": "CA Vipa Ketan Saiya",
+    "Village": "Mokha"
+  },
+  {
+    "Committee": "Capital Market",
+    "Position": "SubCommittee",
+    "Name": "CA Nidhi SandeepChheda",
+    "Village": "Rayan"
+  },
+  {
+    "Committee": "YIME",
+    "Position": "SubCommittee",
+    "Name": "CA Dhruv DineshDedhia",
+    "Village": "Toda"
+  }
+]

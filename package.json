@@ -1,0 +1,25 @@
+{
+  "name": "cvoca-website",
+  "version": "1.0.0",
+  "description": "CVOCA Website - Professional Association for Chartered & Cost Accountants",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "convert-data": "node scripts/convert-data.js"
+  },
+  "dependencies": {
+    "vue": "^3.5.17",
+    "vue-router": "^4.5.1",
+    "vuetify": "^3.8.10",
+    "pinia": "^2.1.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.4",
+    "vite": "^5.0.0",
+    "vite-plugin-vuetify": "^2.1.1",
+    "vitest": "^1.0.0"
+  }
+}
