@@ -4,7 +4,7 @@ export const NAVIGATION_ITEMS = [
   { path: '/membership', label: 'Membership', icon: 'mdi-account-group' },
   { path: '/events', label: 'Events', icon: 'mdi-calendar' },
   { path: '/blog', label: 'Blog', icon: 'mdi-post' },
-  { path: '/digital-outreach', label: 'Digital Outreach', icon: 'mdi-earth' },
+  { path: '/digital-outreach', label: 'Outreach', icon: 'mdi-earth' },
   { path: '/contact', label: 'Contact', icon: 'mdi-email' }
 ]
 
@@ -21,16 +21,22 @@ export const PAGE_TITLES = {
 
 // Social links configuration
 export const SOCIAL_LINKS = [
-  { platform: 'LinkedIn', href: '#', icon: 'mdi-linkedin', external: true },
-  { platform: 'Twitter', href: '#', icon: 'mdi-twitter', external: true },
-  { platform: 'Facebook', href: '#', icon: 'mdi-facebook', external: true },
-  { platform: 'Instagram', href: '#', icon: 'mdi-instagram', external: true }
+  { platform: 'LinkedIn', href: 'https://in.linkedin.com/company/cvoca-association', icon: 'mdi-linkedin', external: true },
+  { platform: 'Twitter', href: 'https://x.com/cvocain?lang=en', icon: 'mdi-twitter', external: true },
+  { platform: 'Facebook', href: 'https://www.facebook.com/CVOCAAssociation/', icon: 'mdi-facebook', external: true },
+  { platform: 'Instagram', href: 'https://www.instagram.com/cvocain/?hl=en', icon: 'mdi-instagram', external: true },
+  { platform: 'YouTube', href: 'https://www.youtube.com/@cvocharteredcostaccountant9981', icon: 'mdi-youtube', external: true }
 ]
 
 // Common contact info
 export const CONTACT_INFO = [
-  { type: 'address', icon: 'mdi-map-marker', label: 'Address', value: 'Mumbai, Maharashtra, India' },
-  { type: 'phone', icon: 'mdi-phone', label: 'Phone', value: '+91 22 1234 5678' },
+  { 
+    type: 'address', 
+    icon: 'mdi-map-marker', 
+    label: 'Address', 
+    value: '304, Jasmine Apartment, Dadasaheb Phalke Road, Dadar (E), Mumbai 400014, Maharashtra' 
+  },
+  { type: 'phone', icon: 'mdi-phone', label: 'Mobile', value: '+91-9167928622' },
   { type: 'email', icon: 'mdi-email', label: 'Email', value: 'info@cvoca.org' },
   { type: 'hours', icon: 'mdi-clock', label: 'Office Hours', value: 'Mon - Fri: 9:00 AM - 6:00 PM' }
 ]

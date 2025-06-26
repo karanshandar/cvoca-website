@@ -40,20 +40,19 @@
               :target="social.external ? '_blank' : undefined"
               :rel="social.external ? 'noopener noreferrer' : undefined"
               class="social-btn"
-              :aria-label="social.platform"
-              @click="social.href === '#' && handlePlaceholderClick(social.platform)"
+              :aria-label="`Follow CVOCA on ${social.platform}`"
             >
               <v-icon :icon="social.icon" />
             </v-btn>
           </div>
         </div>
 
-        <!-- Quick Links Section -->
+        <!-- Navigation Section -->
         <div class="footer-section">
-          <h4 class="footer-section-title">Quick Links</h4>
+          <h4 class="footer-section-title">Navigation</h4>
           <nav class="footer-nav">
             <router-link 
-              v-for="item in getQuickLinks()" 
+              v-for="item in MERGED_NAVIGATION" 
               :key="item.path" 
               :to="item.path" 
               class="footer-nav-link"
@@ -61,23 +60,6 @@
             >
               <v-icon :icon="item.icon" class="footer-nav-icon" />
               {{ item.label }}
-            </router-link>
-          </nav>
-        </div>
-
-        <!-- Resources Section -->
-        <div class="footer-section">
-          <h4 class="footer-section-title">Resources</h4>
-          <nav class="footer-nav">
-            <router-link 
-              v-for="resource in RESOURCES" 
-              :key="resource.to"
-              :to="resource.to" 
-              class="footer-nav-link"
-              @click="scrollToTop"
-            >
-              <v-icon :icon="resource.icon" class="footer-nav-icon" />
-              {{ resource.label }}
             </router-link>
           </nav>
         </div>
@@ -130,13 +112,16 @@
 </template>
 
 <script setup>
-import { SOCIAL_LINKS, CONTACT_INFO, getQuickLinks } from '@/utils/constants'
+import { SOCIAL_LINKS, CONTACT_INFO } from '@/utils/constants'
 
-const RESOURCES = [
-  { to: '/blog', icon: 'mdi-newspaper', label: 'Blog & Articles' },
-  { to: '/events', icon: 'mdi-calendar', label: 'Events Calendar' },
-  { to: '/membership', icon: 'mdi-account-group', label: 'Membership Benefits' },
-  { to: '/digital-outreach', icon: 'mdi-earth', label: 'Digital Outreach' }
+// Merged navigation without duplicates
+const MERGED_NAVIGATION = [
+  { path: '/about', label: 'About', icon: 'mdi-information' },
+  { path: '/membership', label: 'Membership', icon: 'mdi-account-group' },
+  { path: '/events', label: 'Events', icon: 'mdi-calendar' },
+  { path: '/blog', label: 'Blog', icon: 'mdi-newspaper' },
+  { path: '/digital-outreach', label: 'Digital Outreach', icon: 'mdi-earth' },
+  { path: '/contact', label: 'Contact', icon: 'mdi-email' }
 ]
 
 const FOOTER_LINKS = [
@@ -145,10 +130,7 @@ const FOOTER_LINKS = [
   { to: '/membership', label: 'Membership' }
 ]
 
-const handlePlaceholderClick = (platform) => {
-  console.log(`${platform} link clicked - placeholder for future implementation`)
-  // You can add a toast notification here when social media links are ready
-}
+// Social media links are now active and properly configured
 
 const scrollToTop = () => {
   // Small delay to ensure navigation completes for router links
@@ -272,26 +254,7 @@ const scrollToTop = () => {
   transform: translateY(-2px) scale(1.1);
 }
 
-.social-btn[href="#"] {
-  opacity: 0.7;
-  position: relative;
-}
-
-.social-btn[href="#"]:hover {
-  opacity: 1;
-}
-
-.social-btn[href="#"]::after {
-  content: '';
-  position: absolute;
-  top: -2px;
-  right: -2px;
-  width: 8px;
-  height: 8px;
-  background: var(--v-theme-warning);
-  border-radius: 50%;
-  opacity: 0.6;
-}
+/* All social media links are now active */
 
 /* Footer Sections */
 .footer-section {

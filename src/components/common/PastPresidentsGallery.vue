@@ -85,58 +85,43 @@
       </div>
     </div>
 
-    <!-- Modern Presidents Grid -->
-    <div class="presidents-grid-section">
-      <div v-if="filteredPresidents.length > 0" class="presidents-grid">
+    <!-- Modern Presidents Leaderboard -->
+    <div class="presidents-leaderboard-section">
+      <div v-if="filteredPresidents.length > 0" class="presidents-leaderboard">
+        <!-- Leaderboard Header -->
+        <div class="leaderboard-header">
+          <div class="header-rank">#</div>
+          <div class="header-name">President Name</div>
+          <div class="header-village">Village</div>
+          <div class="header-year">Term</div>
+        </div>
+
+        <!-- Leaderboard Rows -->
         <div 
           v-for="(president, index) in paginatedPresidents" 
           :key="president.Name"
-          class="modern-president-card"
-          :style="{ animationDelay: `${index * 0.05}s` }"
+          class="leaderboard-row"
+          :style="{ animationDelay: `${index * 0.03}s` }"
         >
-          <div class="card-glow"></div>
+          <div class="row-rank">
+            <div class="rank-badge">
+              <span class="rank-number">#{{ president.SrNo }}</span>
+            </div>
+          </div>
           
-          <!-- Card Header -->
-          <div class="card-header">
-            <div class="president-number">
-              <span class="number-text">#{{ president.SrNo }}</span>
-            </div>
+          <div class="row-name">
+            <span class="president-name">{{ president.Name }}</span>
+          </div>
+          
+          <div class="row-village">
+            <v-icon icon="mdi-map-marker" class="location-icon" />
+            <span class="village-name">{{ president.Village }}</span>
+          </div>
+          
+          <div class="row-year">
             <div class="year-badge">
-              <v-icon icon="mdi-crown" class="crown-icon" />
+              <v-icon icon="mdi-calendar" class="calendar-icon" />
               <span class="year-text">{{ president.Year }}</span>
-            </div>
-          </div>
-
-          <!-- Card Body -->
-          <div class="card-body">
-            <div class="president-avatar">
-              <v-icon icon="mdi-account-circle" />
-            </div>
-            
-            <div class="president-info">
-              <h3 class="president-name">{{ president.Name }}</h3>
-              
-              <div class="president-location">
-                <v-icon icon="mdi-map-marker" class="location-icon" />
-                <span class="location-text">{{ president.Village }}</span>
-              </div>
-
-              <div class="tenure-info">
-                <span class="tenure-label">Served in</span>
-                <span class="tenure-year">{{ president.Year }}</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card Footer -->
-          <div class="card-footer">
-            <div class="legacy-indicator">
-              <div class="legacy-dots">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-              </div>
-              <span class="legacy-text">Legacy Leader</span>
             </div>
           </div>
         </div>
@@ -314,13 +299,13 @@ watch([searchQuery, selectedDecade], () => {
 
 /* Statistics Section */
 .stats-section {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .stats-container {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
@@ -328,10 +313,10 @@ watch([searchQuery, selectedDecade], () => {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  padding: 2rem 2.5rem;
-  border-radius: 20px;
-  min-width: 220px;
+  gap: 1rem;
+  padding: 1.25rem 1.75rem;
+  border-radius: 16px;
+  min-width: 180px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
   backdrop-filter: blur(20px);
@@ -386,13 +371,13 @@ watch([searchQuery, selectedDecade], () => {
 }
 
 .stat-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: rgb(var(--v-theme-on-primary));
   position: relative;
   z-index: 2;
@@ -411,10 +396,10 @@ watch([searchQuery, selectedDecade], () => {
 }
 
 .stat-number {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: 800;
   line-height: 1;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
 
 .stat-1 .stat-number {
@@ -430,7 +415,7 @@ watch([searchQuery, selectedDecade], () => {
 }
 
 .stat-label {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: rgb(var(--v-theme-on-surface-variant));
   letter-spacing: 0.3px;
@@ -576,201 +561,164 @@ watch([searchQuery, selectedDecade], () => {
   line-height: 1.5;
 }
 
-/* Presidents Grid Section */
-.presidents-grid-section {
+/* Presidents Leaderboard Section */
+.presidents-leaderboard-section {
   margin-bottom: 3rem;
 }
 
-.presidents-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.5rem;
-}
-
-/* Modern President Cards */
-.modern-president-card {
-  position: relative;
-  background: rgba(var(--v-theme-surface), 0.9);
+.presidents-leaderboard {
+  background: rgba(var(--v-theme-surface), 0.95);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(var(--v-theme-outline), 0.3);
   border-radius: 20px;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: fadeInUp 0.6s ease forwards;
-  opacity: 0;
-  transform: translateY(30px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.modern-president-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  border-color: rgba(var(--v-theme-primary), 0.5);
-  box-shadow: 0 20px 40px rgba(var(--v-theme-primary), 0.15);
-}
-
-.card-glow {
-  position: absolute;
-  inset: -2px;
-  border-radius: 22px;
-  padding: 2px;
-  background: linear-gradient(45deg, 
-    transparent, 
-    rgba(var(--v-theme-primary), 0.3), 
-    transparent
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.modern-president-card:hover .card-glow {
-  opacity: 1;
-}
-
-/* Card Header */
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Leaderboard Header */
+.leaderboard-header {
+  display: grid;
+  grid-template-columns: 70px minmax(280px, 2fr) 180px 120px;
+  gap: 2rem;
   padding: 1rem 1.5rem;
   background: linear-gradient(135deg, 
     rgba(var(--v-theme-primary), 0.1) 0%,
     rgba(var(--v-theme-secondary), 0.05) 100%
   );
-}
-
-.president-number {
-  background: rgba(var(--v-theme-primary), 0.1);
-  border: 1px solid rgba(var(--v-theme-primary), 0.3);
-  border-radius: 8px;
-  padding: 0.25rem 0.75rem;
-}
-
-.number-text {
-  font-size: 0.8rem;
+  border-bottom: 2px solid rgba(var(--v-theme-outline), 0.2);
   font-weight: 700;
-  color: rgb(var(--v-theme-primary));
+  font-size: 0.9rem;
+  color: rgb(var(--v-theme-on-surface-variant));
+  text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+
+.header-rank {
+  text-align: center;
+}
+
+.header-name {
+  text-align: left;
+}
+
+.header-village {
+  text-align: center;
+}
+
+.header-year {
+  text-align: center;
+}
+
+/* Leaderboard Rows */
+.leaderboard-row {
+  display: grid;
+  grid-template-columns: 70px minmax(280px, 2fr) 180px 120px;
+  gap: 2rem;
+  padding: 0.875rem 1.5rem;
+  border-bottom: 1px solid rgba(var(--v-theme-outline), 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  align-items: center;
+}
+
+.leaderboard-row:hover {
+  background: rgba(var(--v-theme-primary), 0.05);
+  transform: translateX(8px);
+  border-left: 4px solid rgb(var(--v-theme-primary));
+  padding-left: calc(1.5rem - 4px);
+}
+
+.leaderboard-row:last-child {
+  border-bottom: none;
+}
+
+/* Rank Badge */
+.row-rank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rank-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  min-width: 50px;
+  background: rgba(var(--v-theme-surface-variant), 0.6);
+  color: rgb(var(--v-theme-on-surface-variant));
+  border: 1px solid rgba(var(--v-theme-outline), 0.3);
+  transition: all 0.3s ease;
+}
+
+.rank-number {
+  font-size: 0.85rem;
+  letter-spacing: 0.3px;
+}
+
+/* President Name */
+.row-name {
+  display: flex;
+  align-items: center;
+}
+
+.president-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgb(var(--v-theme-on-surface));
+  line-height: 1.3;
+}
+
+/* Village */
+.row-village {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.location-icon {
+  font-size: 1rem;
+  color: rgb(var(--v-theme-primary));
+  opacity: 0.7;
+}
+
+.village-name {
+  font-size: 0.95rem;
+  color: rgb(var(--v-theme-on-surface-variant));
+  font-weight: 500;
+}
+
+/* Year Badge */
+.row-year {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .year-badge {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #ffd700, #ffed4e);
-  color: #1a1a1a;
-  border-radius: 12px;
-  padding: 0.5rem 1rem;
+  background: rgba(var(--v-theme-primary), 0.1);
+  color: rgb(var(--v-theme-primary));
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+  border: 1px solid rgba(var(--v-theme-primary), 0.3);
 }
 
-.crown-icon {
-  font-size: 1rem;
+.calendar-icon {
+  font-size: 0.9rem;
 }
 
 .year-text {
-  font-size: 0.9rem;
-  letter-spacing: 0.3px;
-}
-
-/* Card Body */
-.card-body {
-  padding: 1.5rem;
-  text-align: center;
-}
-
-.president-avatar {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, 
-    rgba(var(--v-theme-primary), 0.2),
-    rgba(var(--v-theme-secondary), 0.2)
-  );
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1rem;
-  color: rgb(var(--v-theme-primary));
-  font-size: 2rem;
-  border: 3px solid rgba(var(--v-theme-primary), 0.3);
-}
-
-.president-name {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: rgb(var(--v-theme-on-surface));
-  margin-bottom: 0.75rem;
-  line-height: 1.2;
-}
-
-.president-location {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.location-icon {
-  font-size: 1rem;
-  color: rgb(var(--v-theme-primary));
-}
-
-.location-text {
-  font-size: 0.9rem;
-  color: rgb(var(--v-theme-on-surface-variant));
-  font-weight: 500;
-}
-
-.tenure-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.tenure-label {
-  font-size: 0.8rem;
-  color: rgb(var(--v-theme-on-surface-variant));
-  opacity: 0.8;
-}
-
-.tenure-year {
-  font-size: 1rem;
-  font-weight: 600;
-  color: rgb(var(--v-theme-primary));
-}
-
-/* Card Footer */
-.card-footer {
-  padding: 1rem 1.5rem;
-  background: rgba(var(--v-theme-surface-variant), 0.3);
-  border-top: 1px solid rgba(var(--v-theme-outline), 0.2);
-}
-
-.legacy-indicator {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-}
-
-.legacy-dots {
-  display: flex;
-  gap: 0.25rem;
-}
-
-.dot {
-  width: 6px;
-  height: 6px;
-  background: rgb(var(--v-theme-primary));
-  border-radius: 50%;
-  opacity: 0.6;
-}
-
-.legacy-text {
-  font-size: 0.8rem;
-  color: rgb(var(--v-theme-on-surface-variant));
-  font-weight: 500;
+  font-size: 0.85rem;
   letter-spacing: 0.3px;
 }
 
@@ -856,12 +804,25 @@ watch([searchQuery, selectedDecade], () => {
   }
   
   .stat-card {
-    min-width: 200px;
-    padding: 1.5rem 2rem;
+    min-width: 160px;
+    padding: 1rem 1.5rem;
   }
   
-  .presidents-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  .leaderboard-header,
+  .leaderboard-row {
+    grid-template-columns: 65px 1fr 140px 110px;
+    padding: 0.875rem 1.25rem;
+    gap: 0.6rem;
+  }
+  
+  .rank-badge {
+    min-width: 45px;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.8rem;
+  }
+  
+  .president-name {
+    font-size: 1rem;
   }
 }
 
@@ -886,15 +847,42 @@ watch([searchQuery, selectedDecade], () => {
   
   .modern-filter-chips {
     gap: 0.75rem;
+    justify-content: flex-start;
   }
   
   .filter-chip {
     padding: 0.5rem 1rem !important;
+    flex: 0 0 auto;
+    min-width: fit-content;
   }
   
-  .presidents-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1rem;
+  .leaderboard-header,
+  .leaderboard-row {
+    grid-template-columns: 60px 1fr 120px 100px;
+    padding: 0.875rem 1rem;
+    gap: 0.5rem;
+  }
+  
+  .leaderboard-header {
+    font-size: 0.8rem;
+  }
+  
+  .rank-badge {
+    min-width: 45px;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  .president-name {
+    font-size: 0.95rem;
+  }
+  
+  .village-name {
+    font-size: 0.85rem;
+  }
+  
+  .year-text {
+    font-size: 0.8rem;
   }
 }
 
@@ -906,45 +894,86 @@ watch([searchQuery, selectedDecade], () => {
   .stat-card {
     flex-direction: column;
     text-align: center;
-    gap: 1rem;
-    padding: 1.5rem;
-  }
-  
-  .stat-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 1.2rem;
-  }
-  
-  .stat-number {
-    font-size: 1.8rem;
-  }
-  
-  .modern-filter-chips {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .filter-chip {
-    width: 100%;
-    max-width: 250px;
-  }
-  
-  .presidents-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .modern-president-card {
-    margin: 0 auto;
-    max-width: 300px;
-  }
-  
-  .card-body {
+    gap: 0.75rem;
     padding: 1rem;
   }
   
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  
+  .modern-filter-chips {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .filter-chip {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.85rem !important;
+    flex: 0 0 auto;
+    min-width: fit-content;
+  }
+  
+  .leaderboard-header,
+  .leaderboard-row {
+    grid-template-columns: 50px 1fr 80px;
+    padding: 1rem 0.75rem;
+    gap: 0.5rem;
+  }
+  
+  .header-year,
+  .row-year {
+    display: none;
+  }
+  
+  .leaderboard-header {
+    font-size: 0.75rem;
+  }
+  
+  .rank-badge {
+    min-width: 40px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+  
   .president-name {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+  }
+  
+  .village-name {
+    font-size: 0.8rem;
+  }
+  
+  .trophy-icon,
+  .medal-icon {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .modern-filter-chips {
+    gap: 0.4rem;
+  }
+  
+  .filter-chip {
+    padding: 0.4rem 0.6rem !important;
+    font-size: 0.8rem !important;
+    border-radius: 12px !important;
+  }
+  
+  .filter-header {
+    margin-bottom: 0.5rem;
+  }
+  
+  .filter-title {
+    font-size: 0.9rem;
   }
 }
 </style> 

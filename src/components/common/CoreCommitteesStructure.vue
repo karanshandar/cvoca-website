@@ -38,6 +38,37 @@
       </div>
     </div>
 
+    <!-- Expand/Collapse All Controls -->
+    <div class="controls-section">
+      <div class="controls-container">
+        <h3 class="controls-title">Committee Details</h3>
+        <div class="expand-controls">
+          <v-btn
+            variant="outlined"
+            size="small"
+            color="primary"
+            @click="expandAll"
+            :disabled="allExpanded"
+            class="control-btn"
+          >
+            <v-icon icon="mdi-chevron-down" class="mr-1" />
+            Expand All
+          </v-btn>
+          <v-btn
+            variant="outlined"
+            size="small"
+            color="secondary"
+            @click="collapseAll"
+            :disabled="allCollapsed"
+            class="control-btn"
+          >
+            <v-icon icon="mdi-chevron-up" class="mr-1" />
+            Collapse All
+          </v-btn>
+        </div>
+      </div>
+    </div>
+
     <!-- Modern Committees Grid -->
     <div class="committees-grid">
       <div
@@ -49,7 +80,14 @@
         <div class="card-glow"></div>
         
         <!-- Committee Header -->
-        <div class="committee-header">
+        <div 
+          class="committee-header"
+          @click="toggleCommittee(committee)"
+          role="button"
+          tabindex="0"
+          @keydown.enter="toggleCommittee(committee)"
+          @keydown.space="toggleCommittee(committee)"
+        >
           <div class="header-background"></div>
           <div class="header-content">
             <div class="committee-icon">
@@ -62,11 +100,22 @@
                 <span class="count-text">{{ getCommitteeMembers(committee).length }} members</span>
               </div>
             </div>
+            <div class="toggle-icon">
+              <v-icon 
+                :icon="expandedCommittees.includes(committee) ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+                class="toggle-chevron"
+                :class="{ 'rotated': expandedCommittees.includes(committee) }"
+              />
+            </div>
           </div>
         </div>
 
         <!-- Committee Body -->
-        <div class="committee-body">
+        <v-expand-transition>
+          <div 
+            v-show="expandedCommittees.includes(committee)"
+            class="committee-body"
+          >
           <div 
             v-for="role in getRolesForCommittee(committee)"
             :key="role"
@@ -101,15 +150,19 @@
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        </v-expand-transition>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import committeesData from '@/data/committees.json'
+
+// Reactive state for collapsible functionality
+const expandedCommittees = ref([])
 
 const committeesList = computed(() => 
   [...new Set(committeesData.map(member => member.Committee))]
@@ -178,6 +231,32 @@ const formatRoleName = (role) => {
   }
   return roleMap[role] || role
 }
+
+// Collapsible functionality
+const toggleCommittee = (committee) => {
+  const index = expandedCommittees.value.indexOf(committee)
+  if (index > -1) {
+    expandedCommittees.value.splice(index, 1)
+  } else {
+    expandedCommittees.value.push(committee)
+  }
+}
+
+const expandAll = () => {
+  expandedCommittees.value = [...committeesList.value]
+}
+
+const collapseAll = () => {
+  expandedCommittees.value = []
+}
+
+const allExpanded = computed(() => 
+  expandedCommittees.value.length === committeesList.value.length
+)
+
+const allCollapsed = computed(() => 
+  expandedCommittees.value.length === 0
+)
 </script>
 
 <style scoped>
@@ -197,13 +276,13 @@ const formatRoleName = (role) => {
 
 /* Statistics Section */
 .stats-section {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .stats-container {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
@@ -211,10 +290,10 @@ const formatRoleName = (role) => {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  padding: 2rem 2.5rem;
-  border-radius: 20px;
-  min-width: 200px;
+  gap: 1rem;
+  padding: 1.25rem 1.75rem;
+  border-radius: 16px;
+  min-width: 160px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
   backdrop-filter: blur(20px);
@@ -266,13 +345,13 @@ const formatRoleName = (role) => {
 }
 
 .stat-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: rgb(var(--v-theme-on-primary));
   position: relative;
   z-index: 2;
@@ -291,10 +370,10 @@ const formatRoleName = (role) => {
 }
 
 .stat-number {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 800;
   line-height: 1;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
 
 .primary-stat .stat-number {
@@ -310,10 +389,10 @@ const formatRoleName = (role) => {
 }
 
 .stat-label {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: rgb(var(--v-theme-on-surface-variant));
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
 .stat-decoration {
@@ -339,11 +418,45 @@ const formatRoleName = (role) => {
   background: radial-gradient(circle, rgb(156, 39, 176), transparent);
 }
 
+/* Controls Section */
+.controls-section {
+  margin-bottom: 2rem;
+}
+
+.controls-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: rgba(var(--v-theme-surface), 0.8);
+  border: 1px solid rgba(var(--v-theme-outline), 0.3);
+  border-radius: 12px;
+  backdrop-filter: blur(20px);
+}
+
+.controls-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgb(var(--v-theme-on-surface));
+  margin: 0;
+}
+
+.expand-controls {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.control-btn {
+  font-weight: 500;
+  text-transform: none;
+  border-radius: 8px;
+}
+
 /* Committees Grid */
 .committees-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
 }
 
 /* Modern Committee Cards */
@@ -352,7 +465,7 @@ const formatRoleName = (role) => {
   background: rgba(var(--v-theme-surface), 0.9);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(var(--v-theme-outline), 0.3);
-  border-radius: 24px;
+  border-radius: 16px;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   animation: fadeInUp 0.6s ease forwards;
@@ -387,8 +500,19 @@ const formatRoleName = (role) => {
 /* Committee Header */
 .committee-header {
   position: relative;
-  padding: 2rem;
+  padding: 1.25rem;
   overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.committee-header:hover {
+  background: rgba(var(--v-theme-primary), 0.02);
+}
+
+.committee-header:focus {
+  outline: 2px solid rgb(var(--v-theme-primary));
+  outline-offset: 2px;
 }
 
 .header-background {
@@ -405,19 +529,19 @@ const formatRoleName = (role) => {
   z-index: 2;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .committee-icon {
-  width: 60px;
-  height: 60px;
+  width: 48px;
+  height: 48px;
   background: linear-gradient(135deg, rgb(var(--v-theme-primary)), #42a5f5);
   color: rgb(var(--v-theme-on-primary));
-  border-radius: 16px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   box-shadow: 0 4px 20px rgba(var(--v-theme-primary), 0.3);
 }
 
@@ -426,10 +550,10 @@ const formatRoleName = (role) => {
 }
 
 .committee-name {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: rgb(var(--v-theme-on-surface));
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   line-height: 1.2;
 }
 
@@ -454,13 +578,30 @@ const formatRoleName = (role) => {
   letter-spacing: 0.3px;
 }
 
+.toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
+
+.toggle-chevron {
+  font-size: 1.5rem;
+  color: rgb(var(--v-theme-primary));
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toggle-chevron.rotated {
+  transform: rotate(180deg);
+}
+
 /* Committee Body */
 .committee-body {
-  padding: 0 2rem 2rem;
+  padding: 0 1.25rem 1.25rem;
 }
 
 .role-section {
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 .role-section:last-child {
@@ -471,11 +612,11 @@ const formatRoleName = (role) => {
 .role-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  padding: 0.75rem 1rem;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0.75rem;
   background: rgba(var(--v-theme-surface-variant), 0.5);
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid rgba(var(--v-theme-outline), 0.2);
 }
 
@@ -529,18 +670,18 @@ const formatRoleName = (role) => {
 .members-list {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  margin-left: 2rem;
+  gap: 0.5rem;
+  margin-left: 1.5rem;
 }
 
 .member-item {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 0.75rem;
+  padding: 0.75rem;
   background: rgba(var(--v-theme-surface), 0.8);
   border: 1px solid rgba(var(--v-theme-outline), 0.2);
-  border-radius: 12px;
+  border-radius: 8px;
   transition: all 0.3s ease;
 }
 
@@ -551,8 +692,8 @@ const formatRoleName = (role) => {
 }
 
 .member-avatar {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   background: linear-gradient(135deg, 
     rgba(var(--v-theme-primary), 0.2),
     rgba(var(--v-theme-secondary), 0.2)
@@ -562,18 +703,18 @@ const formatRoleName = (role) => {
   align-items: center;
   justify-content: center;
   color: rgb(var(--v-theme-primary));
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .member-details {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.15rem;
 }
 
 .member-name {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: rgb(var(--v-theme-on-surface));
   line-height: 1.2;
@@ -583,7 +724,7 @@ const formatRoleName = (role) => {
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: rgb(var(--v-theme-on-surface-variant));
   opacity: 0.8;
 }
@@ -620,8 +761,8 @@ const formatRoleName = (role) => {
   
   .stat-card {
     width: 100%;
-    max-width: 350px;
-    padding: 1.5rem 2rem;
+    max-width: 300px;
+    padding: 1rem 1.5rem;
   }
   
   .committees-grid {
@@ -629,30 +770,42 @@ const formatRoleName = (role) => {
     gap: 1.5rem;
   }
   
+  .controls-container {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+  
+  .expand-controls {
+    width: 100%;
+    justify-content: center;
+  }
+  
   .committee-header {
-    padding: 1.5rem;
+    padding: 1rem;
   }
   
   .header-content {
-    gap: 1rem;
+    gap: 0.75rem;
   }
   
   .committee-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
   }
   
   .committee-name {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
   
   .committee-body {
-    padding: 0 1.5rem 1.5rem;
+    padding: 0 1rem 1rem;
   }
   
   .members-list {
-    margin-left: 1rem;
+    margin-left: 0.75rem;
   }
 }
 
@@ -664,18 +817,18 @@ const formatRoleName = (role) => {
   .stat-card {
     flex-direction: column;
     text-align: center;
-    gap: 1rem;
-    padding: 1.5rem;
+    gap: 0.75rem;
+    padding: 1rem;
   }
   
   .stat-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
   }
   
   .stat-number {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   
   .header-content {
@@ -693,13 +846,25 @@ const formatRoleName = (role) => {
   }
   
   .member-item {
-    padding: 0.75rem;
+    padding: 0.5rem;
   }
   
   .member-avatar {
-    width: 35px;
-    height: 35px;
-    font-size: 1rem;
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+  
+  .controls-title {
+    font-size: 1.1rem;
+  }
+  
+  .expand-controls {
+    gap: 0.5rem;
+  }
+  
+  .control-btn {
+    flex: 1;
   }
 }
 </style> 
