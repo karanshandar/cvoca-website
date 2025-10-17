@@ -44,13 +44,19 @@
                     </v-btn>
                   </v-col>
                   <v-col cols="12" md="4" class="text-center">
-                    <v-img 
-                      :src="post.image" 
-                      height="200" 
-                      cover 
+                    <v-img
+                      :src="post.image"
+                      height="200"
+                      cover
                       rounded="lg"
                       class="mb-3"
-                    />
+                    >
+                      <template #error>
+                        <div class="d-flex align-center justify-center h-100 bg-grey-lighten-3">
+                          <v-icon icon="mdi-image-off" size="64" color="grey" />
+                        </div>
+                      </template>
+                    </v-img>
                     <v-chip 
                       :color="BLOG_CATEGORY_COLORS[post.category] || 'primary'" 
                       variant="outlined"
@@ -69,33 +75,36 @@
 
         <!-- Newsletter Signup -->
         <v-card class="pa-8" elevation="4" rounded="lg">
-          <h2 class="text-h5 font-weight-bold mb-4">Subscribe to Our Newsletter</h2>
-          <p class="text-body-1 mb-4 text-on-surface-variant">
-            Stay updated with the latest articles, events, and insights from the CVOCA community.
-          </p>
-          <v-row>
-            <v-col cols="12" md="8">
-              <v-text-field
-                v-model="email"
-                label="Enter your email address"
-                type="email"
-                variant="outlined"
-                placeholder="your.email@example.com"
+          <div class="text-center">
+            <v-icon icon="mdi-email-newsletter" size="64" color="primary" class="mb-4" />
+            <h2 class="text-h5 font-weight-bold mb-4">Stay Connected</h2>
+            <p class="text-body-1 mb-6 text-on-surface-variant">
+              Follow us on social media and attend our events to stay updated with the latest news,
+              articles, and insights from the CVOCA community.
+            </p>
+            <div class="d-flex justify-center gap-4 flex-wrap">
+              <v-btn
                 color="primary"
-              />
-            </v-col>
-            <v-col cols="12" md="4" class="d-flex align-center">
-              <v-btn 
-                color="primary" 
+                variant="elevated"
                 size="large"
-                :loading="subscribing"
-                @click="subscribe"
+                to="/events"
                 rounded
               >
-                Subscribe
+                <v-icon start icon="mdi-calendar" />
+                View Events
               </v-btn>
-            </v-col>
-          </v-row>
+              <v-btn
+                color="secondary"
+                variant="outlined"
+                size="large"
+                to="/contact"
+                rounded
+              >
+                <v-icon start icon="mdi-email" />
+                Contact Us
+              </v-btn>
+            </div>
+          </div>
         </v-card>
       </v-col>
     </v-row>
@@ -103,11 +112,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import { BLOG_CATEGORY_COLORS } from '@/utils/constants'
-
-const email = ref('')
-const subscribing = ref(false)
 
 const blogPosts = [
   {
@@ -144,20 +149,6 @@ const getPostMeta = (post) => [
   { icon: 'mdi-account', label: 'Author', value: post.author },
   { icon: 'mdi-tag', label: 'Category', value: post.category }
 ]
-
-const subscribe = () => {
-  if (!email.value) {
-    alert('Please enter your email address')
-    return
-  }
-  
-  subscribing.value = true
-  setTimeout(() => {
-    subscribing.value = false
-    alert('Thank you for subscribing to our newsletter!')
-    email.value = ''
-  }, 2000)
-}
 </script>
 
 <style scoped>

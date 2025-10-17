@@ -57,6 +57,11 @@
                     <div class="image-overlay">
                       <v-icon :icon="initiative.icon" size="48" color="white" />
                     </div>
+                    <template #error>
+                      <div class="d-flex align-center justify-center h-100 bg-grey-lighten-3">
+                        <v-icon icon="mdi-image-off" size="64" color="grey" />
+                      </div>
+                    </template>
                   </v-img>
                   <div class="initiative-badge">
                     <v-chip :color="initiative.category === 'digital' ? 'primary' : 'secondary'" variant="elevated" size="small">

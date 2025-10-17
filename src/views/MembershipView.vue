@@ -63,57 +63,27 @@
 
     <!-- Application Form -->
     <v-row class="mb-8" justify="center">
-      <v-col cols="12" md="8">
-        <v-card class="pa-8" elevation="4" rounded="lg">
-          <h2 class="text-h5 font-weight-bold mb-4">Membership Application</h2>
-          <v-form @submit.prevent="submitApplication">
-            <v-row>
-              <v-col 
-                v-for="field in formFields" 
-                :key="field.name"
-                :cols="field.cols || 12" 
-                :md="field.md || 6"
-              >
-                <v-text-field
-                  v-if="field.type !== 'select' && field.type !== 'textarea'"
-                  v-model="form[field.name]"
-                  :label="field.label"
-                  :type="field.type"
-                  :required="field.required"
-                  variant="outlined"
-                  color="primary"
-                />
-                <v-select
-                  v-else-if="field.type === 'select'"
-                  v-model="form[field.name]"
-                  :label="field.label"
-                  :items="field.items"
-                  :required="field.required"
-                  variant="outlined"
-                  color="primary"
-                />
-                <v-textarea
-                  v-else
-                  v-model="form[field.name]"
-                  :label="field.label"
-                  variant="outlined"
-                  rows="3"
-                  color="primary"
-                />
-              </v-col>
-              <v-col cols="12" class="text-center">
-                <v-btn 
-                  color="primary" 
-                  size="large" 
-                  type="submit"
-                  :loading="submitting"
-                  rounded
-                >
-                  Submit Application
-                </v-btn>
-              </v-col>
-            </v-row>
-          </v-form>
+      <v-col cols="12" md="10">
+        <v-card class="pa-6" elevation="4" rounded="lg">
+          <h2 class="text-h5 font-weight-bold mb-4 text-center">Membership Application</h2>
+          <p class="text-body-2 text-on-surface-variant text-center mb-6">
+            Fill out the form below to apply for CVOCA membership. We'll review your application and get back to you soon.
+          </p>
+
+          <!-- Google Form Embed -->
+          <div class="google-form-container">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSeU2NxFGmon8alCyRkQf6TJa7ZtB_MWyIP_6q-31l9oyeiccw/viewform?embedded=true"
+              width="100%"
+              height="1200"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              class="google-form-iframe"
+            >
+              Loading…
+            </iframe>
+          </div>
         </v-card>
       </v-col>
     </v-row>
@@ -121,19 +91,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import { MEMBERSHIP_BENEFITS } from '@/utils/constants'
-
-const submitting = ref(false)
-const form = ref({
-  firstName: '',
-  lastName: '',
-  email: '',
-  phone: '',
-  membershipType: '',
-  qualification: '',
-  message: ''
-})
 
 const membershipTypes = [
   {
@@ -170,33 +128,6 @@ const membershipTypes = [
     ]
   }
 ]
-
-const formFields = [
-  { name: 'firstName', label: 'First Name', type: 'text', required: true, md: 6 },
-  { name: 'lastName', label: 'Last Name', type: 'text', required: true, md: 6 },
-  { name: 'email', label: 'Email', type: 'email', required: true, md: 6 },
-  { name: 'phone', label: 'Phone', type: 'tel', required: true, md: 6 },
-  { 
-    name: 'membershipType', 
-    label: 'Membership Type', 
-    type: 'select', 
-    required: true, 
-    md: 6,
-    items: membershipTypes.map(type => ({ title: type.name, value: type.name }))
-  },
-  { name: 'qualification', label: 'CA/CMA Qualification', type: 'text', required: true, md: 6 },
-  { name: 'message', label: 'Additional Information (Optional)', type: 'textarea', cols: 12 }
-]
-
-const submitApplication = () => {
-  submitting.value = true
-  setTimeout(() => {
-    submitting.value = false
-    alert('Application submitted successfully! We will contact you soon.')
-    // Reset form
-    Object.keys(form.value).forEach(key => form.value[key] = '')
-  }, 2000)
-}
 </script>
 
 <style scoped>
@@ -217,5 +148,25 @@ const submitApplication = () => {
 .v-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+}
+
+.google-form-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--v-theme-surface-variant);
+}
+
+.google-form-iframe {
+  display: block;
+  border-radius: var(--radius-md);
+  min-height: 1200px;
+}
+
+@media (max-width: 768px) {
+  .google-form-iframe {
+    min-height: 1400px;
+  }
 }
 </style> 

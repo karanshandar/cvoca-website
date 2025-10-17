@@ -16,7 +16,11 @@
             width="48"
             height="48"
             class="logo-image"
-          />
+          >
+            <template #error>
+              <v-icon icon="mdi-image-broken" size="48" color="grey" />
+            </template>
+          </v-img>
         </div>
         <div class="logo-text">
           <h1 class="logo-title">CVOCA</h1>
@@ -44,6 +48,18 @@
 
       <!-- Header Actions -->
       <div class="d-flex align-center header-actions">
+        <!-- Theme Toggle -->
+        <v-btn
+          icon
+          variant="text"
+          class="theme-toggle-btn"
+          @click="toggleTheme"
+          :aria-label="`Switch to ${theme.global.current.value.dark ? 'light' : 'dark'} mode`"
+          size="large"
+        >
+          <v-icon :icon="theme.global.current.value.dark ? 'mdi-weather-sunny' : 'mdi-weather-night'" />
+        </v-btn>
+
         <!-- Mobile Menu Toggle -->
         <v-btn
           icon
@@ -101,20 +117,31 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useTheme } from 'vuetify'
 import { NAVIGATION_ITEMS } from '@/utils/constants'
 import { useScroll, useActiveRoute } from '@/utils/composables'
 
 const router = useRouter()
+const theme = useTheme()
 const { isScrolled } = useScroll(20)
 const { isActive } = useActiveRoute()
 const mobileMenuOpen = ref(false)
 
-// Debug watcher
-watch(mobileMenuOpen, (newVal) => {
-  console.log('Mobile menu state changed:', newVal)
-})
+const toggleTheme = () => {
+  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+  // Save preference to localStorage
+  localStorage.setItem('cvoca-theme', theme.global.name.value)
+}
+
+// Load saved theme preference on mount
+if (typeof window !== 'undefined') {
+  const savedTheme = localStorage.getItem('cvoca-theme')
+  if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
+    theme.global.name.value = savedTheme
+  }
+}
 
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -137,7 +164,6 @@ const handleMobileNavClick = () => {
 
 const toggleMobileMenu = () => {
   mobileMenuOpen.value = !mobileMenuOpen.value
-  console.log('Mobile menu toggled:', mobileMenuOpen.value)
 }
 </script>
 
@@ -221,6 +247,25 @@ const toggleMobileMenu = () => {
 
 /* Header Actions */
 .header-actions { gap: 0.5rem; }
+
+.theme-toggle-btn {
+  border-radius: var(--radius-md) !important;
+  transition: all var(--transition-normal);
+  background: var(--v-theme-surface-variant) !important;
+  color: var(--v-theme-on-surface) !important;
+  min-width: 48px !important;
+  min-height: 48px !important;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--v-theme-primary-container) !important;
+  color: var(--v-theme-on-primary-container) !important;
+  transform: scale(1.05) rotate(15deg);
+}
+
+.theme-toggle-btn:active {
+  transform: scale(0.95) rotate(15deg);
+}
 
 .mobile-menu-btn {
   border-radius: var(--radius-md) !important;

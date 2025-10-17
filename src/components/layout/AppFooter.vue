@@ -18,7 +18,11 @@
                 width="48"
                 height="48"
                 class="footer-logo"
-              />
+              >
+                <template #error>
+                  <v-icon icon="mdi-image-broken" size="48" color="grey" />
+                </template>
+              </v-img>
             </div>
             <div class="brand-text">
               <h3 class="brand-title">CVOCA</h3>
