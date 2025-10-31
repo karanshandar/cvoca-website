@@ -42,9 +42,10 @@
                       {{ event.type }}
                     </v-chip>
                     <div class="mb-3">
-                      <v-btn 
-                        :color="getEventColor(event.type)" 
+                      <v-btn
+                        :color="getEventColor(event.type)"
                         variant="elevated"
+                        size="large"
                         rounded
                       >
                         Register Now

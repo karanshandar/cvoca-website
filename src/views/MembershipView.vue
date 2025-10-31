@@ -45,9 +45,10 @@
                   </ul>
                 </v-card-text>
                 <v-card-actions class="pa-4">
-                  <v-btn 
-                    color="primary" 
+                  <v-btn
+                    color="primary"
                     variant="elevated"
+                    size="large"
                     block
                     rounded
                   >

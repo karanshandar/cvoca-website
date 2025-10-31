@@ -52,20 +52,80 @@ html, body, #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  /* Prevent horizontal scrolling */
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
-/* Typography */
+/* Prevent horizontal scroll on containers */
+.v-container,
+.v-row {
+  max-width: 100%;
+}
+
+/* Ensure images don't cause overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Typography - Material You 3 Type Scale */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;
+  color: var(--v-theme-on-surface);
 }
 
-h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; }
-h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; }
-h3 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; }
+/* Display - Hero sections */
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
 
-p { line-height: 1.6; color: var(--v-theme-on-surface-variant); }
+/* Headline - Section titles */
+h2 {
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Title - Card titles, subsections */
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+}
+
+h4 {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+}
+
+h5 {
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  font-weight: 600;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Body text */
+p {
+  line-height: 1.6;
+  color: var(--v-theme-on-surface-variant);
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+
+/* Label text */
+.text-caption, .v-chip {
+  letter-spacing: 0.03em;
+  font-weight: 500;
+}
 
 /* Page Transitions - Material You 3 */
 .page-enter-active {
@@ -107,6 +167,11 @@ p { line-height: 1.6; color: var(--v-theme-on-surface-variant); }
   letter-spacing: 0.3px;
   text-transform: none;
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Touch target accessibility - minimum 48x48px */
+  min-height: 48px;
+}
+.v-btn:not(.v-btn--icon):not(.v-btn--size-x-small):not(.v-btn--size-small) {
+  min-width: 48px;
 }
 .v-btn:hover { transform: translateY(-2px); }
 .v-btn:active { transform: scale(0.96); }
@@ -115,8 +180,28 @@ p { line-height: 1.6; color: var(--v-theme-on-surface-variant); }
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid var(--v-theme-outline);
+  /* Uniform card styling - Material You 3 */
+  border-radius: var(--radius-lg) !important;
 }
-.v-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+.v-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Consistent card padding */
+.v-card-text {
+  padding: 1.5rem !important;
+}
+
+.v-card-title {
+  padding: 1.5rem 1.5rem 0.5rem !important;
+  font-weight: 700 !important;
+}
+
+.v-card-actions {
+  padding: 0.75rem 1.5rem 1.5rem !important;
+}
 
 .v-text-field, .v-select, .v-textarea { transition: all var(--transition-fast); }
 .v-text-field:focus-within, .v-select:focus-within, .v-textarea:focus-within { transform: translateY(-1px); }

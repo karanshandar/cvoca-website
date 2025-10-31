@@ -39,7 +39,7 @@
                         <span class="text-caption text-on-surface-variant">{{ meta.value }}</span>
                       </div>
                     </div>
-                    <v-btn color="primary" variant="outlined" rounded>
+                    <v-btn color="primary" variant="outlined" size="large" rounded>
                       Read More
                     </v-btn>
                   </v-col>

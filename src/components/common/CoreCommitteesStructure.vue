@@ -45,7 +45,7 @@
         <div class="expand-controls">
           <v-btn
             variant="outlined"
-            size="small"
+            size="default"
             color="primary"
             @click="expandAll"
             :disabled="allExpanded"
@@ -56,7 +56,7 @@
           </v-btn>
           <v-btn
             variant="outlined"
-            size="small"
+            size="default"
             color="secondary"
             @click="collapseAll"
             :disabled="allCollapsed"
@@ -588,7 +588,8 @@ const allCollapsed = computed(() =>
 .toggle-chevron {
   font-size: 1.5rem;
   color: rgb(var(--v-theme-primary));
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Material You 3: 350ms emphasized easing */
+  transition: all 0.35s cubic-bezier(0.2, 0, 0, 1);
 }
 
 .toggle-chevron.rotated {

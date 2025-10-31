@@ -93,7 +93,8 @@
             icon
             variant="text"
             @click="closeMobileMenu"
-            size="small"
+            size="large"
+            aria-label="Close menu"
           >
             <v-icon icon="mdi-close" />
           </v-btn>
@@ -117,7 +118,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useTheme } from 'vuetify'
 import { NAVIGATION_ITEMS } from '@/utils/constants'
@@ -128,6 +129,27 @@ const theme = useTheme()
 const { isScrolled } = useScroll(20)
 const { isActive } = useActiveRoute()
 const mobileMenuOpen = ref(false)
+
+// Handle Esc key to close mobile menu
+const handleKeydown = (event) => {
+  if (event.key === 'Escape' && mobileMenuOpen.value) {
+    closeMobileMenu()
+  }
+}
+
+// Add/remove keyboard listener when menu state changes
+watch(mobileMenuOpen, (isOpen) => {
+  if (isOpen) {
+    document.addEventListener('keydown', handleKeydown)
+  } else {
+    document.removeEventListener('keydown', handleKeydown)
+  }
+})
+
+// Cleanup on unmount
+onUnmounted(() => {
+  document.removeEventListener('keydown', handleKeydown)
+})
 
 const toggleTheme = () => {
   theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
@@ -312,7 +334,8 @@ const toggleMobileMenu = () => {
   box-shadow: -4px 0 30px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
-  animation: slideInFromRight 0.3s ease-out;
+  /* Material You 3: 350ms with emphasized easing */
+  animation: slideInFromRight 0.35s cubic-bezier(0.2, 0, 0, 1);
 }
 
 @keyframes slideInFromRight {
