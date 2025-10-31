@@ -1,0 +1,396 @@
+/* Material You 3 Animation System */
+
+/* ==========================================
+   Material You 3 Motion Principles
+   ========================================== */
+
+/*
+  Duration:
+  - Quick: 100ms - 200ms (micro-interactions)
+  - Normal: 300ms - 400ms (standard interactions)
+  - Slow: 500ms - 700ms (complex transitions)
+
+  Easing:
+  - Emphasized: cubic-bezier(0.2, 0.0, 0, 1.0) - Decelerates quickly
+  - Standard: cubic-bezier(0.4, 0.0, 0.2, 1) - Balanced
+  - Decelerate: cubic-bezier(0.0, 0.0, 0.2, 1) - Slow end
+  - Accelerate: cubic-bezier(0.4, 0.0, 1, 1) - Slow start
+*/
+
+:root {
+  /* Duration tokens */
+  --motion-duration-quick: 150ms;
+  --motion-duration-normal: 350ms;
+  --motion-duration-slow: 600ms;
+
+  /* Easing tokens */
+  --motion-easing-emphasized: cubic-bezier(0.2, 0.0, 0, 1.0);
+  --motion-easing-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --motion-easing-decelerate: cubic-bezier(0.0, 0.0, 0.2, 1);
+  --motion-easing-accelerate: cubic-bezier(0.4, 0.0, 1, 1);
+}
+
+/* ==========================================
+   Utility Classes for Animations
+   ========================================== */
+
+/* Transition Utilities */
+.transition-quick {
+  transition: all var(--motion-duration-quick) var(--motion-easing-standard);
+}
+
+.transition-normal {
+  transition: all var(--motion-duration-normal) var(--motion-easing-standard);
+}
+
+.transition-slow {
+  transition: all var(--motion-duration-slow) var(--motion-easing-standard);
+}
+
+.transition-emphasized {
+  transition: all var(--motion-duration-normal) var(--motion-easing-emphasized);
+}
+
+/* ==========================================
+   Micro-Animations for Interactive Elements
+   ========================================== */
+
+/* Button Press Animation */
+.btn-press {
+  transition: transform var(--motion-duration-quick) var(--motion-easing-emphasized);
+}
+
+.btn-press:active {
+  transform: scale(0.96);
+}
+
+/* Hover Lift Animation */
+.hover-lift {
+  transition: transform var(--motion-duration-normal) var(--motion-easing-emphasized),
+              box-shadow var(--motion-duration-normal) var(--motion-easing-emphasized);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* Subtle Hover Scale */
+.hover-scale {
+  transition: transform var(--motion-duration-normal) var(--motion-easing-emphasized);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* Icon Rotate on Hover */
+.icon-rotate-hover {
+  transition: transform var(--motion-duration-normal) var(--motion-easing-emphasized);
+}
+
+.icon-rotate-hover:hover {
+  transform: rotate(15deg);
+}
+
+/* ==========================================
+   Entrance Animations
+   ========================================== */
+
+/* Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn var(--motion-duration-normal) var(--motion-easing-decelerate);
+}
+
+/* Slide Up */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  animation: slideUp var(--motion-duration-slow) var(--motion-easing-emphasized);
+}
+
+/* Slide Down */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-down {
+  animation: slideDown var(--motion-duration-slow) var(--motion-easing-emphasized);
+}
+
+/* Slide In From Left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft var(--motion-duration-slow) var(--motion-easing-emphasized);
+}
+
+/* Slide In From Right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight var(--motion-duration-slow) var(--motion-easing-emphasized);
+}
+
+/* Scale In */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scale-in {
+  animation: scaleIn var(--motion-duration-normal) var(--motion-easing-emphasized);
+}
+
+/* ==========================================
+   Loading Animations
+   ========================================== */
+
+/* Pulse */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Spin */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Skeleton Loading */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ==========================================
+   Stagger Animation Delays
+   ========================================== */
+
+.stagger-1 {
+  animation-delay: 0.1s;
+}
+
+.stagger-2 {
+  animation-delay: 0.2s;
+}
+
+.stagger-3 {
+  animation-delay: 0.3s;
+}
+
+.stagger-4 {
+  animation-delay: 0.4s;
+}
+
+.stagger-5 {
+  animation-delay: 0.5s;
+}
+
+/* ==========================================
+   Smooth Focus States
+   ========================================== */
+
+.focus-ring {
+  transition: outline var(--motion-duration-quick) var(--motion-easing-standard),
+              box-shadow var(--motion-duration-quick) var(--motion-easing-standard);
+}
+
+.focus-ring:focus {
+  outline: 2px solid rgb(var(--v-theme-primary));
+  outline-offset: 2px;
+}
+
+.focus-ring:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ==========================================
+   Expand/Collapse Animations
+   ========================================== */
+
+.expand-enter-active,
+.expand-leave-active {
+  transition: max-height var(--motion-duration-normal) var(--motion-easing-emphasized),
+              opacity var(--motion-duration-normal) var(--motion-easing-emphasized);
+  overflow: hidden;
+}
+
+.expand-enter-from,
+.expand-leave-to {
+  max-height: 0;
+  opacity: 0;
+}
+
+.expand-enter-to,
+.expand-leave-from {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+/* ==========================================
+   Ripple Effect (Material You 3)
+   ========================================== */
+
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple:active::after {
+  width: 200%;
+  height: 200%;
+  transition: width 0s, height 0s;
+}
+
+/* ==========================================
+   Performance Optimizations
+   ========================================== */
+
+/* GPU Acceleration for smooth animations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================
+   Page Transition Animations
+   ========================================== */
+
+/* Fade transition */
+.page-fade-enter-active,
+.page-fade-leave-active {
+  transition: opacity var(--motion-duration-normal) var(--motion-easing-standard);
+}
+
+.page-fade-enter-from,
+.page-fade-leave-to {
+  opacity: 0;
+}
+
+/* Slide fade transition */
+.page-slide-fade-enter-active {
+  transition: all var(--motion-duration-slow) var(--motion-easing-emphasized);
+}
+
+.page-slide-fade-leave-active {
+  transition: all var(--motion-duration-normal) var(--motion-easing-accelerate);
+}
+
+.page-slide-fade-enter-from {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.page-slide-fade-leave-to {
+  opacity: 0;
+  transform: translateX(-20px);
+}

@@ -8,11 +8,11 @@ export default createVuetify({
       light: {
         dark: false,
         colors: {
-          // Modern primary palette with gradient support
-          primary: '#2563EB', // Modern blue
+          // Modern primary palette with gradient support (WCAG AA compliant)
+          primary: '#1E40AF', // Darker blue for better contrast
           'primary-container': '#DBEAFE',
           'on-primary': '#FFFFFF',
-          'on-primary-container': '#1E40AF',
+          'on-primary-container': '#1E3A8A', // Darker for better contrast
 
           // Enhanced secondary palette
           secondary: '#7C3AED', // Modern purple
@@ -54,15 +54,15 @@ export default createVuetify({
           'on-success': '#FFFFFF',
           'on-success-container': '#047857',
 
-          warning: '#D97706',
+          warning: '#B45309', // Darker orange for better contrast (WCAG AA)
           'warning-container': '#FEF3C7',
           'on-warning': '#FFFFFF',
-          'on-warning-container': '#92400E',
+          'on-warning-container': '#78350F',
 
-          info: '#2563EB',
+          info: '#1E40AF', // Match primary for consistency and better contrast
           'info-container': '#DBEAFE',
           'on-info': '#FFFFFF',
-          'on-info-container': '#1E40AF',
+          'on-info-container': '#1E3A8A',
         },
         variables: {
           'border-radius-root': '16px',
@@ -152,7 +152,7 @@ export default createVuetify({
       rounded: 'lg',
     },
     VCard: {
-      elevation: 3,
+      elevation: 2, // Material You 3 standard elevation
       rounded: 'xl',
     },
     VBtn: {

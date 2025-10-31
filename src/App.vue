@@ -67,10 +67,26 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; }
 
 p { line-height: 1.6; color: var(--v-theme-on-surface-variant); }
 
-/* Page Transitions */
-.page-enter-active, .page-leave-active { transition: all var(--transition-normal); }
-.page-enter-from { opacity: 0; transform: translateY(20px) scale(0.98); }
-.page-leave-to { opacity: 0; transform: translateY(-20px) scale(1.02); }
+/* Page Transitions - Material You 3 */
+.page-enter-active {
+  transition: opacity 0.35s cubic-bezier(0.2, 0, 0, 1),
+              transform 0.35s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.page-leave-active {
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 1, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 8px; background: var(--v-theme-surface-variant); }
@@ -85,21 +101,22 @@ p { line-height: 1.6; color: var(--v-theme-on-surface-variant); }
 *:focus { outline: 2px solid var(--v-theme-primary); outline-offset: 2px; border-radius: var(--radius-sm); }
 *:focus:not(:focus-visible) { outline: none; }
 
-/* Enhanced Components */
+/* Enhanced Components - Material You 3 */
 .v-btn {
   font-weight: 600;
   letter-spacing: 0.3px;
   text-transform: none;
-  transition: all var(--transition-normal);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.v-btn:hover { transform: translateY(-1px); }
-.v-btn:active { transform: translateY(0); }
+.v-btn:hover { transform: translateY(-2px); }
+.v-btn:active { transform: scale(0.96); }
 
 .v-card {
-  transition: all var(--transition-normal);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid var(--v-theme-outline);
 }
-.v-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.v-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 
 .v-text-field, .v-select, .v-textarea { transition: all var(--transition-fast); }
 .v-text-field:focus-within, .v-select:focus-within, .v-textarea:focus-within { transform: translateY(-1px); }

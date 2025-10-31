@@ -25,7 +25,7 @@
                   class="hero-chip"
                   prepend-icon="mdi-star"
                   variant="elevated"
-                  :elevation="8"
+                  :elevation="4"
                 >
                   Professional Excellence Since 1973
                 </v-chip>
@@ -151,7 +151,7 @@
               <v-card 
                 class="news-card h-100"
                 variant="elevated"
-                :elevation="1"
+                :elevation="2"
                 hover
               >
                 <v-card-text class="news-card-content">
@@ -248,7 +248,7 @@ const HERO_ACTIONS = [
     variant: 'elevated',
     to: '/membership',
     icon: 'mdi-account-plus',
-    elevation: 8,
+    elevation: 4, // Material You 3: primary action button
     class: 'hero-btn-primary'
   },
   {
@@ -275,7 +275,7 @@ const CTA_ACTIONS = [
     variant: 'elevated',
     to: '/membership',
     icon: 'mdi-account-plus',
-    elevation: 6
+    elevation: 4 // Material You 3: primary action button
   },
   {
     text: 'Contact Us',
@@ -407,7 +407,7 @@ const newsList = [
   width: 90%;
   max-width: 500px;
   aspect-ratio: 16/10;
-  border-radius: 24px;
+  border-radius: 24px; /* Material You 3: rounded-xl */
   overflow: hidden;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
 }
@@ -435,7 +435,7 @@ const newsList = [
   position: absolute;
   inset: -2px;
   background: linear-gradient(135deg, rgb(var(--v-theme-primary)) 0%, rgb(var(--v-theme-secondary)) 100%);
-  border-radius: 26px;
+  border-radius: 26px; /* Slightly larger than photo for frame effect */
   z-index: -1;
 }
 
@@ -447,7 +447,7 @@ const newsList = [
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 24px;
+  border-radius: 24px; /* Material You 3: rounded-xl */
 }
 
 .placeholder-content {
@@ -579,17 +579,19 @@ const newsList = [
   flex-wrap: wrap;
 }
 
-.hero-btn { 
-  border-radius: 12px !important;
+.hero-btn {
+  border-radius: 16px !important; /* Material You 3: rounded-lg */
   padding: 0 2rem !important;
   font-weight: 600;
   text-transform: none;
   letter-spacing: 0.025em;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-btn:hover {
   transform: translateY(-2px);
+  /* Material You 3: Elevation increases on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.12) !important;
 }
 
 .hero-stats {
@@ -612,11 +614,11 @@ const newsList = [
 
 .stat-card {
   padding: 1rem;
-  border-radius: 16px;
+  border-radius: 16px; /* Material You 3: rounded-lg */
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .stat-card:hover {
@@ -663,15 +665,16 @@ const newsList = [
 }
 
 .feature-card {
-  border-radius: 20px !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 24px !important; /* Material You 3: rounded-xl */
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(var(--v-theme-outline), 0.2);
   background: rgb(var(--v-theme-surface)) !important;
 }
 
 .feature-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(var(--v-theme-shadow), 0.15) !important;
+  /* Material You 3: Elevation increases from 2 to 4 on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
 .feature-card-content {
@@ -700,8 +703,8 @@ const newsList = [
   font-size: 1rem;
 }
 
-.feature-btn { 
-  border-radius: 10px !important; 
+.feature-btn {
+  border-radius: 12px !important; /* Material You 3: rounded-md */
   font-weight: 600;
   text-transform: none;
 }
@@ -728,14 +731,15 @@ const newsList = [
 
 .news-card {
   border-radius: 16px !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   background: rgb(var(--v-theme-surface)) !important;
   border: 1px solid rgba(var(--v-theme-outline), 0.1);
 }
 
 .news-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(var(--v-theme-shadow), 0.1) !important;
+  /* Material You 3: Elevation increases from 2 to 4 on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08) !important;
 }
 
 .news-card-content {
@@ -832,16 +836,18 @@ const newsList = [
   flex-wrap: wrap;
 }
 
-.cta-btn { 
-  border-radius: 12px !important;
+.cta-btn {
+  border-radius: 16px !important; /* Material You 3: rounded-lg */
   padding: 0 2rem !important;
   font-weight: 600;
   text-transform: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cta-btn:hover {
   transform: translateY(-2px);
+  /* Material You 3: Elevation increases on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.12) !important;
 }
 
 /* Responsive Design */

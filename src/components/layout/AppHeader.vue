@@ -177,7 +177,8 @@ const toggleMobileMenu = () => {
 
 .header-scrolled {
   background: rgba(255, 255, 255, 0.95) !important;
-  box-shadow: var(--shadow-md);
+  /* Material You 3: Elevation 4 for scrolled header */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
 .header-container {
