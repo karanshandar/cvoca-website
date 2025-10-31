@@ -122,7 +122,7 @@ Complete checklist for delivering a professional, production-ready CVOCA (Charte
 - ✅ Horizontal scroll prevention
 - ✅ Uniform card styling and button variants
 
-**Documentation:** See [PHASE2_PROGRESS_REPORT.md](docs/PHASE2_PROGRESS_REPORT.md) for details
+**Documentation:** See [DESIGN_SYSTEM_REFERENCE.md](docs/DESIGN_SYSTEM_REFERENCE.md) for color, elevation, and component standards. See [PHASE2_PROGRESS_REPORT.md](docs/PHASE2_PROGRESS_REPORT.md) for implementation details
 
 **Commits:**
 - `feat: Complete Phase 2 core implementations - Material You 3 UX enhancements` (11388cd)
@@ -722,6 +722,10 @@ src/data/
 ---
 
 ## 📚 Reference Documentation
+
+### CVOCA Design System
+- **[DESIGN_SYSTEM_REFERENCE.md](docs/DESIGN_SYSTEM_REFERENCE.md)** - Quick reference for colors, elevation, buttons, typography, and responsive breakpoints
+- **[PHASE2_PROGRESS_REPORT.md](docs/PHASE2_PROGRESS_REPORT.md)** - Phase 2 implementation details and progress tracking
 
 ### Official Framework Docs
 - **Vue 3:** https://vuejs.org/
