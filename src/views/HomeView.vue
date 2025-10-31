@@ -546,14 +546,13 @@ const newsList = [
   letter-spacing: -0.1em;
   line-height: 0.8;
   margin: 2rem 0;
-  
-  background: url('/assets/images/cvoca-group-photo.jpg') center/cover;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  
-  /* Fallback */
   color: rgb(var(--v-theme-primary));
+
+  /* Material You 3: Bold, expressive typography with shadow depth */
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.05);
+  transition: all 0.35s cubic-bezier(0.2, 0, 0, 1);
 }
 
 .hero-subtitle-simple {

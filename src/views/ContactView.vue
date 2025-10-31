@@ -54,13 +54,14 @@
               </p>
               
               <div class="map-container">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7544.200892830436!2d72.842921!3d19.015295!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cedda964bf1b%3A0xaa6516808342ba88!2sCVOCA!5e0!3m2!1sen!2sus!4v1750920220857!5m2!1sen!2sus" 
-                  width="100%" 
-                  height="400" 
-                  style="border:0; border-radius: 12px;" 
-                  allowfullscreen="" 
-                  loading="lazy" 
+                <iframe
+                  title="CVOCA Office Location on Google Maps"
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7544.200892830436!2d72.842921!3d19.015295!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cedda964bf1b%3A0xaa6516808342ba88!2sCVOCA!5e0!3m2!1sen!2sus!4v1750920220857!5m2!1sen!2sus"
+                  width="100%"
+                  height="400"
+                  style="border:0; border-radius: 12px;"
+                  allowfullscreen=""
+                  loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
                   class="google-map"
                 ></iframe>

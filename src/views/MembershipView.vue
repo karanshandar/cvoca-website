@@ -74,6 +74,8 @@
           <!-- Google Form Embed -->
           <div class="google-form-container">
             <iframe
+              title="CVOCA Membership Application Form"
+              aria-label="Google Form for CVOCA membership application"
               src="https://docs.google.com/forms/d/e/1FAIpQLSeU2NxFGmon8alCyRkQf6TJa7ZtB_MWyIP_6q-31l9oyeiccw/viewform?embedded=true"
               width="100%"
               height="1200"

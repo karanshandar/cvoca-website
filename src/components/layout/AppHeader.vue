@@ -81,14 +81,17 @@
     <div
       v-if="mobileMenuOpen"
       class="mobile-menu-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Navigation menu"
       @click="closeMobileMenu"
     >
-      <div 
+      <div
         class="mobile-menu-drawer"
         @click.stop
       >
         <div class="mobile-drawer-header">
-          <h3 class="mobile-drawer-title">Menu</h3>
+          <h2 class="mobile-drawer-title">Menu</h2>
           <v-btn
             icon
             variant="text"

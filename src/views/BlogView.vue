@@ -46,6 +46,7 @@
                   <v-col cols="12" md="4" class="text-center">
                     <v-img
                       :src="post.image"
+                      :alt="post.title"
                       height="200"
                       cover
                       rounded="lg"

@@ -31,6 +31,7 @@
             <v-text-field
               v-model="searchQuery"
               label="Search presidents by name or village..."
+              aria-label="Search for past presidents by name or village"
               prepend-inner-icon="mdi-magnify"
               variant="outlined"
               rounded="xl"
@@ -44,7 +45,7 @@
 
         <!-- Filter Pills -->
         <div class="filter-container">
-          <div class="filter-header">
+          <div class="filter-header" id="filter-label">
             <v-icon icon="mdi-filter-variant" class="filter-icon" />
             <span class="filter-title">Filter by Era</span>
           </div>
@@ -52,6 +53,7 @@
             v-model="selectedDecade"
             selected-class="selected-filter-chip"
             mandatory
+            aria-labelledby="filter-label"
             class="modern-filter-chips"
           >
             <v-chip 
