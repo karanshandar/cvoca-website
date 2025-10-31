@@ -1,5 +1,5 @@
 <template>
-  <footer class="app-footer">
+  <footer class="app-footer" role="contentinfo">
     <div class="footer-background">
       <div class="footer-gradient"></div>
       <div class="footer-pattern"></div>

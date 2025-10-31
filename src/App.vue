@@ -1,7 +1,12 @@
 <template>
   <v-app>
+    <!-- Accessibility: Skip to main content link -->
+    <a href="#main-content" class="skip-to-main">
+      Skip to main content
+    </a>
+
     <AppHeader />
-    <v-main>
+    <v-main id="main-content">
       <router-view v-slot="{ Component }">
         <transition name="page" mode="out-in">
           <component :is="Component" />
@@ -41,6 +46,29 @@ watch(() => route.path, (path) => {
   --radius-md: 16px;
   --radius-lg: 24px;
   --radius-xl: 32px;
+}
+
+/* Accessibility: Skip to main content link */
+.skip-to-main {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  z-index: 999;
+  display: block;
+  padding: 1rem;
+  background: rgb(var(--v-theme-primary));
+  color: rgb(var(--v-theme-on-primary));
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  outline: none;
+}
+
+.skip-to-main:focus {
+  top: 0;
+  left: 0;
+  outline: 2px solid rgb(var(--v-theme-primary));
+  outline-offset: 2px;
 }
 
 /* Base Styles */
